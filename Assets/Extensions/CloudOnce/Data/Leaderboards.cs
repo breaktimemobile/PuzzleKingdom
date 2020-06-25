@@ -16,7 +16,7 @@ namespace CloudOnce
     {
         private static readonly UnifiedLeaderboard s_combinepuzzlenumbers = new UnifiedLeaderboard("Combinepuzzlenumbers",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "drQsLYCEAIQAQ"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkI-drQsLYCEAIQAQ"
 #else
@@ -31,7 +31,7 @@ namespace CloudOnce
 
         private static readonly UnifiedLeaderboard s_combinenumber2048 = new UnifiedLeaderboard("Combinenumber2048",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "drQsLYCEAIQAg"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkI-drQsLYCEAIQAg"
 #else
@@ -46,7 +46,7 @@ namespace CloudOnce
 
         private static readonly UnifiedLeaderboard s_connect = new UnifiedLeaderboard("Connect",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "drQsLYCEAIQAw"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkI-drQsLYCEAIQAw"
 #else

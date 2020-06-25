@@ -14,8 +14,168 @@ namespace CloudOnce
     /// </summary>
     public static class Achievements
     {
+        private static readonly UnifiedAchievement s_levelup5 = new UnifiedAchievement("Levelup5",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQBA"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQBA"
+#else
+            "Levelup5"
+#endif
+            );
+
+        public static UnifiedAchievement Levelup5
+        {
+            get { return s_levelup5; }
+        }
+
+        private static readonly UnifiedAchievement s_levelup10 = new UnifiedAchievement("Levelup10",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQBQ"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQBQ"
+#else
+            "Levelup10"
+#endif
+            );
+
+        public static UnifiedAchievement Levelup10
+        {
+            get { return s_levelup10; }
+        }
+
+        private static readonly UnifiedAchievement s_levelup15 = new UnifiedAchievement("Levelup15",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQBg"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQBg"
+#else
+            "Levelup15"
+#endif
+            );
+
+        public static UnifiedAchievement Levelup15
+        {
+            get { return s_levelup15; }
+        }
+
+        private static readonly UnifiedAchievement s_levelup20 = new UnifiedAchievement("Levelup20",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQBw"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQBw"
+#else
+            "Levelup20"
+#endif
+            );
+
+        public static UnifiedAchievement Levelup20
+        {
+            get { return s_levelup20; }
+        }
+
+        private static readonly UnifiedAchievement s_levelup25 = new UnifiedAchievement("Levelup25",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQCA"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQCA"
+#else
+            "Levelup25"
+#endif
+            );
+
+        public static UnifiedAchievement Levelup25
+        {
+            get { return s_levelup25; }
+        }
+
+        private static readonly UnifiedAchievement s_useitem5 = new UnifiedAchievement("Useitem5",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQCQ"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQCQ"
+#else
+            "Useitem5"
+#endif
+            );
+
+        public static UnifiedAchievement Useitem5
+        {
+            get { return s_useitem5; }
+        }
+
+        private static readonly UnifiedAchievement s_useitem10 = new UnifiedAchievement("Useitem10",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQCg"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQCg"
+#else
+            "Useitem10"
+#endif
+            );
+
+        public static UnifiedAchievement Useitem10
+        {
+            get { return s_useitem10; }
+        }
+
+        private static readonly UnifiedAchievement s_useitem15 = new UnifiedAchievement("Useitem15",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQCw"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQCw"
+#else
+            "Useitem15"
+#endif
+            );
+
+        public static UnifiedAchievement Useitem15
+        {
+            get { return s_useitem15; }
+        }
+
+        private static readonly UnifiedAchievement s_useitem20 = new UnifiedAchievement("Useitem20",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQDA"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQDA"
+#else
+            "Useitem20"
+#endif
+            );
+
+        public static UnifiedAchievement Useitem20
+        {
+            get { return s_useitem20; }
+        }
+
+        private static readonly UnifiedAchievement s_useitem25 = new UnifiedAchievement("Useitem25",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            "25drQsLYCEAIQDQ"
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkI-drQsLYCEAIQDQ"
+#else
+            "Useitem25"
+#endif
+            );
+
+        public static UnifiedAchievement Useitem25
+        {
+            get { return s_useitem25; }
+        }
+
         public static readonly UnifiedAchievement[] All =
         {
+            s_levelup5,
+            s_levelup10,
+            s_levelup15,
+            s_levelup20,
+            s_levelup25,
+            s_useitem5,
+            s_useitem10,
+            s_useitem15,
+            s_useitem20,
+            s_useitem25,
         };
 
         public static string GetPlatformID(string internalId)
@@ -27,7 +187,16 @@ namespace CloudOnce
 
         private static readonly Dictionary<string, UnifiedAchievement> s_achievementDictionary = new Dictionary<string, UnifiedAchievement>
         {
-
+            { "Levelup5", s_levelup5 },
+            { "Levelup10", s_levelup10 },
+            { "Levelup15", s_levelup15 },
+            { "Levelup20", s_levelup20 },
+            { "Levelup25", s_levelup25 },
+            { "Useitem5", s_useitem5 },
+            { "Useitem10", s_useitem10 },
+            { "Useitem15", s_useitem15 },
+            { "Useitem20", s_useitem20 },
+            { "Useitem25", s_useitem25 },
         };
     }
 }

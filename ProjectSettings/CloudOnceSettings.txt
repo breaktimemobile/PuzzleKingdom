@@ -1,19 +1,70 @@
 {
-	"AchievementIDs":[],
+	"AchievementIDs":[
+		{
+			"InternalID":"Levelup5",
+			"AppleID":"25drQsLYCEAIQBA",
+			"GoogleID":"CgkI-drQsLYCEAIQBA"
+		},
+		{
+			"InternalID":"Levelup10",
+			"AppleID":"25drQsLYCEAIQBQ",
+			"GoogleID":"CgkI-drQsLYCEAIQBQ"
+		},
+		{
+			"InternalID":"Levelup15",
+			"AppleID":"25drQsLYCEAIQBg",
+			"GoogleID":"CgkI-drQsLYCEAIQBg"
+		},
+		{
+			"InternalID":"Levelup20",
+			"AppleID":"25drQsLYCEAIQBw",
+			"GoogleID":"CgkI-drQsLYCEAIQBw"
+		},
+		{
+			"InternalID":"Levelup25",
+			"AppleID":"25drQsLYCEAIQCA",
+			"GoogleID":"CgkI-drQsLYCEAIQCA"
+		},
+		{
+			"InternalID":"Useitem5",
+			"AppleID":"25drQsLYCEAIQCQ",
+			"GoogleID":"CgkI-drQsLYCEAIQCQ"
+		},
+		{
+			"InternalID":"Useitem10",
+			"AppleID":"25drQsLYCEAIQCg",
+			"GoogleID":"CgkI-drQsLYCEAIQCg"
+		},
+		{
+			"InternalID":"Useitem15",
+			"AppleID":"25drQsLYCEAIQCw",
+			"GoogleID":"CgkI-drQsLYCEAIQCw"
+		},
+		{
+			"InternalID":"Useitem20",
+			"AppleID":"25drQsLYCEAIQDA",
+			"GoogleID":"CgkI-drQsLYCEAIQDA"
+		},
+		{
+			"InternalID":"Useitem25",
+			"AppleID":"25drQsLYCEAIQDQ",
+			"GoogleID":"CgkI-drQsLYCEAIQDQ"
+		}
+	],
 	"LeaderboardIDs":[
 		{
 			"InternalID":"Combinepuzzlenumbers",
-			"AppleID":"",
+			"AppleID":"drQsLYCEAIQAQ",
 			"GoogleID":"CgkI-drQsLYCEAIQAQ"
 		},
 		{
 			"InternalID":"Combinenumber2048",
-			"AppleID":"",
+			"AppleID":"drQsLYCEAIQAg",
 			"GoogleID":"CgkI-drQsLYCEAIQAg"
 		},
 		{
 			"InternalID":"Connect",
-			"AppleID":"",
+			"AppleID":"drQsLYCEAIQAw",
 			"GoogleID":"CgkI-drQsLYCEAIQAw"
 		}
 	],

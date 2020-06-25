@@ -21,6 +21,8 @@ public class LevelUp : MonoBehaviour
 	{
 		this.InitUI();
 
+        CloudOnceManager.Instance.Report_Achievements();
+
         foreach (var item in obj_trigger)
         {
             EventTrigger eventTrigger = item.gameObject.AddComponent<EventTrigger>();

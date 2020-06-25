@@ -20,6 +20,205 @@ namespace CloudOnce
         /// </summary>
         public static class AchievementIDs
         {
+            public static string Levelup5
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQBA";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQBA";
+#elif UNITY_EDITOR
+                    return "Levelup5";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Levelup10
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQBQ";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQBQ";
+#elif UNITY_EDITOR
+                    return "Levelup10";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Levelup15
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQBg";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQBg";
+#elif UNITY_EDITOR
+                    return "Levelup15";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Levelup20
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQBw";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQBw";
+#elif UNITY_EDITOR
+                    return "Levelup20";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Levelup25
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQCA";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQCA";
+#elif UNITY_EDITOR
+                    return "Levelup25";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Useitem5
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQCQ";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQCQ";
+#elif UNITY_EDITOR
+                    return "Useitem5";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Useitem10
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQCg";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQCg";
+#elif UNITY_EDITOR
+                    return "Useitem10";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Useitem15
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQCw";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQCw";
+#elif UNITY_EDITOR
+                    return "Useitem15";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Useitem20
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQDA";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQDA";
+#elif UNITY_EDITOR
+                    return "Useitem20";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Useitem25
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkI-drQsLYCEAIQDQ";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "25drQsLYCEAIQDQ";
+#elif UNITY_EDITOR
+                    return "Useitem25";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
         }
 
         /// <summary>
@@ -38,7 +237,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "drQsLYCEAIQAQ";
 #elif UNITY_EDITOR
                     return "Combinepuzzlenumbers";
 #else
@@ -58,7 +257,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "drQsLYCEAIQAg";
 #elif UNITY_EDITOR
                     return "Combinenumber2048";
 #else
@@ -78,7 +277,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "drQsLYCEAIQAw";
 #elif UNITY_EDITOR
                     return "Connect";
 #else

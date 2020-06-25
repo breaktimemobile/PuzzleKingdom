@@ -92,59 +92,60 @@ public class CloudOnceManager : MonoBehaviour
 
     public void Report_Achievements()
     {
-        //switch (DataManager.Instance.state_Player.clear_Stage.Count)
-        //{
-        //    case 10:
-        //        Achievements.BestStage10.Unlock();
+        switch (DataManager.Instance.state_Player.LocalData_Lv)
+        {
+            case 5:
+                Achievements.Levelup5.Unlock();
 
-        //        break;
-        //    case 30:
-        //        Achievements.BestStage30.Unlock();
+                break;
+            case 10:
+                Achievements.Levelup10.Unlock();
 
-        //        break;
-        //    case 50:
-        //        Achievements.BestStage50.Unlock();
+                break;
+            case 15:
+                Achievements.Levelup15.Unlock();
 
-        //        break;
-        //    case 100:
-        //        Achievements.BestStage100.Unlock();
+                break;
+            case 20:
+                Achievements.Levelup20.Unlock();
 
-        //        break;
-        //    case 200:
-        //        Achievements.BestStage200.Unlock();
+                break;
+            case 25:
+                Achievements.Levelup25.Unlock();
 
-        //        break;
-        //    case 300:
-        //        Achievements.BestStage300.Unlock();
+                break;
+ 
+            default:
+                break;
+        }
 
-        //        break;
-        //    case 500:
-        //        Achievements.BestStage500.Unlock();
 
-        //        break;
+        switch (DataManager.Instance.state_Player.AdsCounter)
+        {
+            case 5:
+                Achievements.Useitem5.Unlock();
 
-        //    default:
-        //        break;
-        //}
+                break;
+            case 10:
+                Achievements.Useitem10.Unlock();
 
-        
-        //if (DataManager.Instance.state_Player.Classic >= 10000)
-        //{
-        //    Achievements.BestClassic10000.Unlock();
+                break;
+            case 15:
+                Achievements.Useitem15.Unlock();
 
-        //}
+                break;
+            case 20:
+                Achievements.Useitem20.Unlock();
 
-        //if(DataManager.Instance.state_Player.Classic >= 5000)
-        //{
-        //    Achievements.BestClassic5000.Unlock();
+                break;
+            case 25:
+                Achievements.Useitem25.Unlock();
 
-        //}
+                break;
 
-        //if (DataManager.Instance.state_Player.Classic >= 1000)
-        //{
-        //    Achievements.BestClassic1000.Unlock();
-
-        //}
+            default:
+                break;
+        }
 
     }
 
@@ -153,24 +154,18 @@ public class CloudOnceManager : MonoBehaviour
         switch (gameid)
         {
             case 1:
-                Social.ReportScore(highScore, GPGSIds.leaderboard_combine_puzzle_numbers, (result) =>
-                {
-                    Debug.Log(string.Format("ReportScore : {0}, {1}", highScore, result));
-                });
+                Leaderboards.Combinepuzzlenumbers.SubmitScore(highScore);
+
 
                 break;
             case 2:
-                Social.ReportScore(highScore, GPGSIds.leaderboard_combine_number_2048, (result) =>
-                {
-                    Debug.Log(string.Format("ReportScore : {0}, {1}", highScore, result));
-                });
+                Leaderboards.Combinenumber2048.SubmitScore(highScore);
+
 
                 break;
             case 3:
-                Social.ReportScore(highScore, GPGSIds.leaderboard_connect, (result) =>
-                {
-                    Debug.Log(string.Format("ReportScore : {0}, {1}", highScore, result));
-                });
+                Leaderboards.Connect.SubmitScore(highScore);
+
 
                 break;
             default:

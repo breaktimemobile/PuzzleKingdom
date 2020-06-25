@@ -8,7 +8,6 @@ ScriptsOnlyBuild:
     - Activity
     - AdsControl
     - Assets.Scripts.GameManager.AudioManager
-    - CloudOnce.Internal.Providers.TestProvider
     - CloudOnceManager
     - Crystal.SafeArea
     - DataManager
@@ -73,8 +72,6 @@ ScriptsOnlyBuild:
     - DG.Tweening.Core.DOTweenSettings
     GoogleMobileAds.Editor.dll:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
-    GoogleMobileAds.dll:
-    - GoogleMobileAds.Common.MobileAdsEventExecutor
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -242,83 +239,83 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13522}
     - Class: 114
-      Script: {instanceID: 13580}
+      Script: {instanceID: 13582}
     - Class: 114
-      Script: {instanceID: 13584}
+      Script: {instanceID: 13588}
     - Class: 114
-      Script: {instanceID: 13602}
+      Script: {instanceID: 13606}
     - Class: 114
-      Script: {instanceID: 13610}
+      Script: {instanceID: 13614}
     - Class: 114
-      Script: {instanceID: 13620}
+      Script: {instanceID: 13624}
     - Class: 114
-      Script: {instanceID: 13630}
+      Script: {instanceID: 13634}
     - Class: 114
-      Script: {instanceID: 13632}
+      Script: {instanceID: 13636}
     - Class: 114
-      Script: {instanceID: 13772}
+      Script: {instanceID: 13778}
     - Class: 114
-      Script: {instanceID: 13830}
+      Script: {instanceID: 13836}
     - Class: 114
-      Script: {instanceID: 13862}
+      Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 13968}
+      Script: {instanceID: 13974}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 13978}
     - Class: 114
-      Script: {instanceID: 13982}
+      Script: {instanceID: 13988}
     - Class: 114
-      Script: {instanceID: 14014}
+      Script: {instanceID: 14020}
     - Class: 114
-      Script: {instanceID: 14018}
+      Script: {instanceID: 14024}
     - Class: 114
-      Script: {instanceID: 14064}
+      Script: {instanceID: 14070}
     - Class: 114
-      Script: {instanceID: 14156}
+      Script: {instanceID: 14162}
     - Class: 114
-      Script: {instanceID: 14250}
+      Script: {instanceID: 14256}
     - Class: 114
-      Script: {instanceID: 14294}
+      Script: {instanceID: 14300}
     - Class: 114
-      Script: {instanceID: 14312}
+      Script: {instanceID: 14318}
     - Class: 114
-      Script: {instanceID: 14404}
+      Script: {instanceID: 14410}
     - Class: 114
-      Script: {instanceID: 14406}
+      Script: {instanceID: 14412}
     - Class: 114
-      Script: {instanceID: 14436}
+      Script: {instanceID: 14442}
     - Class: 114
-      Script: {instanceID: 14438}
+      Script: {instanceID: 14444}
     - Class: 114
-      Script: {instanceID: 14450}
+      Script: {instanceID: 14456}
     - Class: 114
-      Script: {instanceID: 14576}
+      Script: {instanceID: 14582}
     - Class: 114
-      Script: {instanceID: 14602}
+      Script: {instanceID: 14608}
     - Class: 114
-      Script: {instanceID: 14726}
+      Script: {instanceID: 14732}
     - Class: 114
-      Script: {instanceID: 14790}
+      Script: {instanceID: 14796}
     - Class: 114
-      Script: {instanceID: 14806}
+      Script: {instanceID: 14812}
     - Class: 114
-      Script: {instanceID: 14856}
+      Script: {instanceID: 14862}
     - Class: 114
-      Script: {instanceID: 14896}
+      Script: {instanceID: 14902}
     - Class: 114
-      Script: {instanceID: 14924}
+      Script: {instanceID: 14930}
     - Class: 114
-      Script: {instanceID: 14946}
+      Script: {instanceID: 14952}
     - Class: 114
-      Script: {instanceID: 14972}
+      Script: {instanceID: 14978}
     - Class: 114
-      Script: {instanceID: 14996}
+      Script: {instanceID: 15002}
     - Class: 114
-      Script: {instanceID: 15038}
+      Script: {instanceID: 15044}
     - Class: 114
-      Script: {instanceID: 15050}
+      Script: {instanceID: 15056}
     - Class: 114
-      Script: {instanceID: 15072}
+      Script: {instanceID: 15078}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
