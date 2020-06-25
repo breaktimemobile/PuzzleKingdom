@@ -1,0 +1,44 @@
+[
+  {
+    "ID": 1,
+	"Item_type":0,
+    "Item": 1,
+    "Desc": "TXT_NO_40007"
+  },
+  {
+    "ID": 2,
+	"Item_type":1,
+    "Item": 1,
+    "Desc": "TXT_NO_40008"
+  },
+  {
+    "ID": 3,
+	"Item_type":4,
+    "Item": 200,
+    "Desc": "TXT_NO_40009"
+  },
+  {
+    "ID": 4,
+	"Item_type":2,
+    "Item": 1,
+    "Desc": "TXT_NO_40010"
+  },
+  {
+    "ID": 5,
+	"Item_type":3,
+    "Item": 2,
+    "Desc": "TXT_NO_40011"
+  },
+  {
+    "ID": 6,
+	"Item_type":2,
+    "Item": 2,
+    "Desc": "TXT_NO_40012"
+  },
+  {
+    "ID": 7,
+	"Item_type":4,
+    "Item": 300,
+    "Desc": "TXT_NO_40013"
+  }
+]

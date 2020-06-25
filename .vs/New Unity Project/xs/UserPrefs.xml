@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ParticlesControl.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Splash.cs" Line="122" Column="15" />
+      <File FileName="Assets/Scripts/M00301.cs" Line="315" Column="10" />
+      <File FileName="Assets/Scripts/Game.cs" Line="195" Column="3" />
+      <File FileName="Assets/Scripts/NumberObj.cs" Line="210" Column="28" />
+      <File FileName="Assets/Scripts/Assets_Scripts_Utils/Language.cs" Line="52" Column="41" />
+      <File FileName="Assets/Scripts/NumberClear.cs" Line="90" Column="14" />
+      <File FileName="Assets/Scripts/G001.cs" Line="848" Column="5" />
+      <File FileName="Assets/Scripts/G00102.cs" Line="165" Column="8" />
+      <File FileName="Assets/Scripts/Assets_Scripts_GameManager/TaskData.cs" Line="140" Column="67" />
+      <File FileName="Assets/Scripts/Assets_Scripts_GameManager/AchiveData.cs" Line="161" Column="69" />
+      <File FileName="Assets/Scripts/Assets_Scripts_Configs/Configs.cs" Line="89" Column="6" />
+      <File FileName="Assets/Scripts/Assets_Scripts_GameManager/GM.cs" Line="187" Column="31" />
+      <File FileName="Assets/Scripts/G00203.cs" Line="149" Column="8" />
+      <File FileName="Assets/Scripts/Assets_Scripts_GameManager/AudioManager.cs" Line="109" Column="52" />
+      <File FileName="Assets/Scripts/G00303.cs" Line="204" Column="7" />
+      <File FileName="Assets/Scripts/G002.cs" Line="657" Column="19" />
+      <File FileName="Assets/Scripts/Assets_Scripts_GameManager/GlobalTimer.cs" Line="62" Column="15" />
+      <File FileName="Assets/Scripts/ParticlesControl.cs" Line="86" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

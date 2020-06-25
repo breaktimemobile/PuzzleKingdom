@@ -1,0 +1,9 @@
+lastUpgrade=01009
+proj.pluginVersion=0.10.09
+proj.AppId=83316977017
+and.BundleId=com.block.puzzle.puzzlego.number.puzzledom.Kingdom
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--+app_id+--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e83316977017%3c%2fstring%3e%0d%0a++%3c%21--+package_name+--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.block.puzzle.puzzlego.number.puzzledom.Kingdom%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+Combine+puzzle+numbers+--%3e%0d%0a++%3cstring+name%3d%22leaderboard_combine_puzzle_numbers%22+translatable%3d%22false%22%3eCgkI-drQsLYCEAIQAQ%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+Combine+number+2048+--%3e%0d%0a++%3cstring+name%3d%22leaderboard_combine_number_2048%22+translatable%3d%22false%22%3eCgkI-drQsLYCEAIQAg%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+Connect+--%3e%0d%0a++%3cstring+name%3d%22leaderboard_connect%22+translatable%3d%22false%22%3eCgkI-drQsLYCEAIQAw%3c%2fstring%3e%0d%0a%3c%2fresources%3e%0d%0a
+and.ClientId=83316977017-2uqkqqmpdvlgat75h9m0dosupdt99499.apps.googleusercontent.com
+android.SetupDone=true

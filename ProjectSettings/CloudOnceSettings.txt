@@ -1,0 +1,28 @@
+{
+	"AchievementIDs":[],
+	"LeaderboardIDs":[
+		{
+			"InternalID":"Combinepuzzlenumbers",
+			"AppleID":"",
+			"GoogleID":"CgkI-drQsLYCEAIQAQ"
+		},
+		{
+			"InternalID":"Combinenumber2048",
+			"AppleID":"",
+			"GoogleID":"CgkI-drQsLYCEAIQAg"
+		},
+		{
+			"InternalID":"Connect",
+			"AppleID":"",
+			"GoogleID":"CgkI-drQsLYCEAIQAw"
+		}
+	],
+	"CloudVariables":[],
+	"AppleSupported":true,
+	"GoogleSupported":true,
+	"GoogleAppID":"83316977017",
+	"GoogleSetupRun":true,
+	"DebugModeEnabled":false,
+	"Version":"2.6.8",
+	"SettingsLocation":"0"
+}

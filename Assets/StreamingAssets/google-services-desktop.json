@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "83316977017",
+    "firebase_url": "https://puzzle-kingdom-10574694.firebaseio.com",
+    "project_id": "puzzle-kingdom-10574694",
+    "storage_bucket": "puzzle-kingdom-10574694.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83316977017:android:06e04d4384ada8ebea13a8",
+        "android_client_info": {
+          "package_name": "com.block.puzzle.puzzlego.number.puzzledom.Kingdom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83316977017-o915teabu95sitqo55n8fjlmqm0nhusd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.block.puzzle.puzzlego.number.puzzledom.Kingdom",
+            "certificate_hash": "5738ea842fc0174189ba7fbaf347f06064a10652"
+          }
+        },
+        {
+          "client_id": "83316977017-2uqkqqmpdvlgat75h9m0dosupdt99499.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu8-lxmPrIHLsrZP7pXj2VBsmkWthAVBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83316977017-2uqkqqmpdvlgat75h9m0dosupdt99499.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

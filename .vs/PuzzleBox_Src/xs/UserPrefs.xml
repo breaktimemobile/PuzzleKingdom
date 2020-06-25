@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{F9DC0C0C-3035-DFDB-6324-FBC596035C38}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game1Manager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Assets_Scripts_GameManager/GM.cs" Line="130" Column="14" />
+      <File FileName="Assets/Scripts/Assets_Scripts_Utils/AdsUtil.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/G3WinDialog.cs" Line="150" Column="47" />
+      <File FileName="Assets/Resources/config/Achive.txt" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/G1UIManager.cs" Line="125" Column="5" />
+      <File FileName="Assets/Scripts/Shop.cs" Line="87" Column="33" />
+      <File FileName="Assets/Scripts/Store.cs" Line="166" Column="5" />
+      <File FileName="Assets/Scripts/IAPManager.cs" Line="286" Column="48" />
+      <File FileName="Assets/Scripts/AdsControl.cs" Line="54" Column="11" />
+      <File FileName="Assets/Scripts/GameList.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Game1Manager.cs" Line="322" Column="22" />
+      <File FileName="Assets/Scripts/SkinUnLock.cs" Line="73" Column="11" />
+      <File FileName="Assets/Scripts/Finish.cs" Line="206" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/doananhtuan/Desktop/IssuesProject/PuzzleBox_ver1.4/PuzzleBox_Src/Assets/Scripts/JavaInvokeCShape.cs" relfile="Assets/Scripts/JavaInvokeCShape.cs" line="33" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
