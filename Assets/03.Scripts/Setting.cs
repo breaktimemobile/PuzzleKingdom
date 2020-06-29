@@ -137,11 +137,17 @@ public class Setting : MonoBehaviour
         {
             GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/Google_Login") as GameObject);
             DialogManager.GetInstance().show(obj, false);
+
+            
         }
         else
         {
+#if UNITY_ANDROID
             GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/Google_Logout") as GameObject);
             DialogManager.GetInstance().show(obj, false);
+#elif UNITY_IOS
+            CloudOnceManager.Instance.Show_Achievements();
+#endif
         }
 
     }
