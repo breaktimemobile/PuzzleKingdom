@@ -77,7 +77,6 @@ namespace Assets.Scripts.GameManager
 			if (this.m_gameTotalTime > 0f)
 			{
 //				AppsflyerUtils.TrackTotalTime(this.m_gameTotalTime);
-				UnityEngine.Debug.Log("Total Time:" + this.m_gameTotalTime);
 				this.ResetTotalTime();
 			}
 		}

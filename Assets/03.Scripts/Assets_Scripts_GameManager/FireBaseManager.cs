@@ -33,11 +33,9 @@ public class FireBaseManager : MonoBehaviour
                 //   app = Firebase.FirebaseApp.DefaultInstance;
 
                 // Set a flag here to indicate whether Firebase is ready to use by your app..
-                Debug.Log("채신");
             }
             else
             {
-                Debug.Log("옛날");
             }
         });
 
@@ -82,8 +80,7 @@ public class FireBaseManager : MonoBehaviour
 
     public void LogEvent(string MainTitle)
     {
-        Debug.Log(
-            "Fire   "+MainTitle);
+
         // Log an event with no parameters.
         Firebase.Analytics.FirebaseAnalytics.LogEvent(MainTitle);
 

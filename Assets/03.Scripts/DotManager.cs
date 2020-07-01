@@ -81,9 +81,7 @@ public class DotManager : MonoBehaviour
 
     public void CheckAds()
     {
-        Debug.Log(name);
 
-        Debug.Log(AdsManager.GetInstance().IsWatch);
         this.m_adsDot.SetActive(AdsManager.GetInstance().IsWatch);
     }
 }

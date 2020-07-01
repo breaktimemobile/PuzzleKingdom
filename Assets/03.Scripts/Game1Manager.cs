@@ -892,39 +892,31 @@ public class Game1Manager : MonoBehaviour
 
     private void AddNewLife(G1Block block)
     {
-        Debug.Log("AddNewLife 1" + block.name);
 
         int num = Game1DataLoader.GetInstance().AddLife();
 
-        Debug.Log("AddNewLife 2" + num);
 
         if (num == -1)
         {
             return;
         }
 
-        Debug.Log("AddNewLife 3");
 
         int number = Game1DataLoader.GetInstance().BloodList[num];
-        Debug.Log("AddNewLife 4 " + number);
 
         G1BlockEvent _even = this.CreateNewLife(number, this.bloodBox, num);
         _even.transform.position = this.bloodPosList[num].transform.position;
         _even.transform.localScale = num == 0 ? new Vector3(1.3f, 1.3f, 1.3f) : new Vector3(1f, 1f, 1f);
         _even.transform.DOScale(this.bloodPosList[num].transform.localScale, 0.3f);
 
-        Debug.Log("AddNewLife 4");
-
     }
 
     private void Drop(List<sDropData> dropList, List<int> newList)
     {
-        Debug.Log("drop  " + dropList.Count + "new " + newList.Count);
 
         Sequence sequence = DOTween.Sequence();
         foreach (sDropData current in dropList)
         {
-            Debug.Log("밑으로 내린 애들   " + current.srcIdx + "   " + current.dstIdx);
             G1Block g = this.blocks[current.srcIdx];
             this.blocks[current.srcIdx] = null;
             this.blocks[current.dstIdx] = g;
@@ -939,7 +931,6 @@ public class Game1Manager : MonoBehaviour
             foreach (int current2 in newList)
             {
                 int col = Game1DataLoader.GetInstance().GetCol(current2);
-                Debug.Log("새로만든 애들    " + "  current2  " + i + "   " + col);
 
                 if (i == col)
                 {
@@ -960,12 +951,10 @@ public class Game1Manager : MonoBehaviour
 
             Game1DataLoader.GetInstance().IsPlaying = false;
             Game1DataLoader.GetInstance().AutoDelete();
-            Debug.Log("게임 오버 체크");
             this.GameOver();
         });
 
         Game1DataLoader.GetInstance().IsPlaying = true;
-        Debug.Log("게임 플레이중");
 
     }
 

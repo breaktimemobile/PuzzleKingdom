@@ -154,9 +154,6 @@ public class AdsControl : MonoBehaviour
         //1920 130
         // Create a 320x50 banner at the top of the screen.
 
-        Debug.Log(Screen.width + "  광고  " + (int)(Screen.height / 18F));
-        AdSize adSize = new AdSize(Screen.width, 100);
-
         this.bannerBtmView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
 
         // Register for ad events.
@@ -189,9 +186,6 @@ public class AdsControl : MonoBehaviour
             this.bannerTopView.Destroy();
         }
 
-        Debug.Log(Screen.width + "  광고  " + (int)(Screen.height / 18F));
-        AdSize adSize = new AdSize(Screen.width, 100);
-
         this.bannerTopView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
 
         // Register for ad events.
@@ -218,13 +212,11 @@ public class AdsControl : MonoBehaviour
 
         if (Top)
         {
-            Debug.Log("위에 광고");
             bannerBtmView.Hide();
             bannerTopView.Show();
         }
         else
         {
-            Debug.Log("밑에 광고");
             bannerBtmView.Show();
             bannerTopView.Hide();
 
@@ -238,7 +230,6 @@ public class AdsControl : MonoBehaviour
     private void RequestRewardedAd()
     {
 
-        Debug.Log("광고 로드");
 #if UNITY_EDITOR
         string adUnitId = "unused";
 #elif UNITY_ANDROID

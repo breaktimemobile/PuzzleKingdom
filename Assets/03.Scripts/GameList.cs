@@ -105,8 +105,6 @@ public class GameList : MonoBehaviour
 
             if (GM.GetInstance().GameId != 0)
             {
-                Debug.Log("?????");
-
 
                 this.OnClickReturn();
                 return;
@@ -160,10 +158,8 @@ public class GameList : MonoBehaviour
                 break;
         }
 
-        Debug.Log(GM.GetInstance().GameId);
         if (GM.GetInstance().GameId != 0)
         {
-            Debug.Log("?????");
             this.OnClickReturn();
             return;
         }
@@ -217,8 +213,6 @@ public class GameList : MonoBehaviour
 
         if (GM.GetInstance().GameId != 0)
         {
-            Debug.Log("?????");
-
 
             FindObjectOfType<MainScene>().OnClickSetting();
             return;
@@ -465,7 +459,6 @@ public class GameList : MonoBehaviour
 
         if (GlobalEventHandle.Action_Bool())
         {
-            Debug.Log("�ڵ鷯 ");
             GlobalEventHandle.DoGoHome += new Action(this.Init);
             //GlobalEventHandle.OnRefreshAchiveHandle = (Action<int>)Delegate.Combine(GlobalEventHandle.OnRefreshAchiveHandle, new Action<int>(this.RefreshRecord));
             GlobalEventHandle.OnRefreshMaxScoreHandle = (Action<string[]>)Delegate.Combine(GlobalEventHandle.OnRefreshMaxScoreHandle, new Action<string[]>(this.RefreshMaxScore));
@@ -498,21 +491,4 @@ public class GameList : MonoBehaviour
         this.m_txt_maxScore03.text = string.Format("{0}/300", 0);
     }
     
-    //private void OnRefreshAdsTimer(string timer, bool isWatch)
-    //{
-    //    if (!this.content.activeSelf)
-    //    {
-    //        return;
-    //    }
-    //    this.m_videoTimer.text = timer;
-    //    if (AdsManager.GetInstance().IsWatch)
-    //    {
-    //        this.m_videoTimer.GetComponent<LanguageComponent>().SetText("TXT_NO_20018");
-    //    }
-    //    if (isWatch)
-    //    {
-    //        return;
-    //    }
-    //}
-
 }

@@ -71,7 +71,6 @@ public class DialogManager : MonoBehaviour
         //_sequence.SetTarget(gameObject);
 
         this.m_childs.Push(new DialogManager.DialogData(gameObject, obj, isIgnoreBack));
-        Debug.Log(m_childs.Count);
 
         FindObjectOfType<MainScene>().Close_Icon();
 

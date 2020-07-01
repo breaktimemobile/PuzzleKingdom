@@ -123,18 +123,14 @@ public class DataManager : MonoBehaviour
     /// </summary>
     public void Get_Json_Data()
     {
-        Debug.Log("시작  " + PlayerPrefs.GetInt("Load", 0));
 
         if (PlayerPrefs.GetInt("Load",0).Equals(0))
         {
-            Debug.Log("처음시작");
             CheckPlayer();
             PlayerPrefs.SetInt("Load", 1);
         }
 
         state_Player = Load_Player();
-
-        Debug.Log("데이터 가져오기 " + Application.systemLanguage +" 플레이어 언어 "+ state_Player.LocalData_LanguageId);
 
         if (state_Player.LocalData_LanguageId == -1)
         {

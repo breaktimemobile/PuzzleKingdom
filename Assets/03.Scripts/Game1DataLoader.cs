@@ -435,7 +435,6 @@ public class Game1DataLoader : MonoBehaviour
     {
         if (this.GetNumber(index) <= 0)
         {
-            Debug.Log("<color=#fffff>내려간다 !!!!</color>");
             this.Down();
             return;
         }
@@ -445,7 +444,6 @@ public class Game1DataLoader : MonoBehaviour
 
     public void Down()
     {
-        Debug.Log("<color=#ff0000>내려간다 !!!!</color>");
 
         List<sDropData> list = new List<sDropData>();
         List<int> list2 = new List<int>();
@@ -496,13 +494,10 @@ public class Game1DataLoader : MonoBehaviour
         this.SaveGame();
         this.DoDropHandle(list, list2);
 
-        Debug.Log("<color=#ff0000>다 내려감 !!!!</color>");
-
     }
 
     public void AutoDelete()
     {
-        Debug.Log("오토 딜리트");
         bool flag = false;
         for (int i = 4; i >= 0; i--)
         {

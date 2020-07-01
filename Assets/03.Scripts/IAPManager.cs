@@ -25,7 +25,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
                                       "rich_pack_9999", "coin_299","coin_499","coin_999","coin_1999","coin_4999"});
 
 
-    public List<string> price = new List<string>();
+    public List<string> price = new List<string>(); 
 
     private List<Dictionary<string, object>> global_data;      //튜토리얼 블럭 정보
 
@@ -79,16 +79,14 @@ public class IAPManager : MonoBehaviour, IStoreListener
         Debug.Log("초기화 성공");
 
         is_controller = controller;
-        Debug.Log("is_controller");
 
         is_extensions = extensions;
-        Debug.Log("is_extensions");
+        Debug.Log("is_extensions " + controller.products.all.Length);
 
 
         foreach (var item in controller.products.all)
         {
-            //Debug.Log("price " + item.metadata.localizedPrice.ToString());
-
+            Debug.Log("price " + item.metadata.localizedPrice.ToString());
                 Find_Sing(item.metadata.isoCurrencyCode.ToString());
 
                 price.Add(sign + " " + item.metadata.localizedPrice.ToString());   

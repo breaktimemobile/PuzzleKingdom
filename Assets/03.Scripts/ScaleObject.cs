@@ -35,8 +35,6 @@ public class ScaleObject : MonoBehaviour
                 width = GetComponent<RectTransform>().sizeDelta.x;
                 hight = GetComponent<RectTransform>().sizeDelta.y;
 
-                Debug.Log(width * 0.9f);
-
                 DOTween.To(() => width, x => width = x, width * scale, speed)
                    .SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
 

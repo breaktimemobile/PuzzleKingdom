@@ -156,13 +156,6 @@ namespace Google.Developers
                 }
             }
 
-            if (args.Length == 1)
-            {
-                for (int i = 0; i < args.Length; i++)
-                {
-                    Debug.Log("---- [" + i + "] -- " + args[i].l);
-                }
-            }
             return args;
         }
 

@@ -144,24 +144,20 @@ public class MainScene : MonoBehaviour
             GlobalTimer.GetInstance().TrackMiniTime();
             GlobalTimer.GetInstance().TrackTotalTime();
             AdsManager.GetInstance().SaveInsertTime();
-            UnityEngine.Debug.Log("game pause ................");
             return;
         }
         AdsUtil.LoadRewardAds();
         AdsManager.GetInstance().PlayTransiformGroundAds();
-        UnityEngine.Debug.Log("game continue .............");
     }
 
     private void OnApplicationQuit()
     {
         GlobalTimer.GetInstance().TrackMiniTime();
         GlobalTimer.GetInstance().TrackTotalTime();
-        UnityEngine.Debug.Log("game quit .............");
     }
 
     public void OnClickStartGame(int id = 0)
     {
-        Debug.Log("id " + id);
         PlayerPrefs.SetInt("conti", 0);
 
         int num = (new int[]
@@ -515,7 +511,6 @@ public class MainScene : MonoBehaviour
 
         if (this.gameview.OnClickHandle == null)
         {
-            Debug.Log("핸들러 추가");
             GlobalEventHandle.GetDiamondHandle += new Action<int, bool>(this.OnGetDiamond);
             GlobalEventHandle.ConsumeDiamondHandle += new Action<int>(this.OnConsumeGEM);
             GlobalEventHandle.AddExpHandle += new Action<bool>(this.OnAddExp);
@@ -757,7 +752,6 @@ public class MainScene : MonoBehaviour
         Sequence actions = DOTween.Sequence();
         arg_50_0.AppendCallback(delegate
         {
-            Debug.Log("아이템 소환");
 
             GameObject prefab = UnityEngine.Object.Instantiate<GameObject>(asset);
             prefab.GetComponentInChildren<Image>().sprite = itme_sp[(int)item_Type];

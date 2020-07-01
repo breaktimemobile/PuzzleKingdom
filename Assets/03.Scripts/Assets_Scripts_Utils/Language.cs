@@ -132,7 +132,6 @@ namespace Assets.Scripts.Utils
 
         private void Init()
 		{
-            Debug.Log("//////////////////////////////////////////////////////////////////////////////////////////////////");
             if (DataManager.Instance.state_Player.LocalData_LanguageId == -1)
             {
                 this.Id = Application.systemLanguage;
@@ -150,7 +149,6 @@ namespace Assets.Scripts.Utils
 		private Font LoadFont()
 		{
 
-            Debug.Log("font 언어 " + Application.systemLanguage + "  플레이어 언어 " + DataManager.Instance.state_Player.LocalData_LanguageId);
             SystemLanguage id = Application.systemLanguage;
 
             if (DataManager.Instance.state_Player.LocalData_LanguageId != -1)
@@ -168,7 +166,6 @@ namespace Assets.Scripts.Utils
 			{
 				path = "font/ARLRDBD";
 			}
-            //Debug.Log("언어path " + path);
 
             return Resources.Load(path) as Font;
 		}
