@@ -21,9 +21,12 @@ public class IAPManager : MonoBehaviour, IStoreListener
     private IExtensionProvider is_extensions = null;
 
     [HideInInspector]
-    public List<string> sProductIds = new List<string>(new string[] { "noads_199" ,"sweet_pack_399", "abundant_pack_999", "soft_pack_2399", "refreshing_pack_5999",
+    public List<string> Android_sProductIds = new List<string>(new string[] { "noads_199" ,"sweet_pack_399", "abundant_pack_999", "soft_pack_2399", "refreshing_pack_5999",
                                       "rich_pack_9999", "coin_299","coin_499","coin_999","coin_1999","coin_4999"});
 
+    [HideInInspector]
+    public List<string> Ios_sProductIds = new List<string>(new string[] { "noads_199" ,"sweet_pack_399", "abundant_pack_999", "soft_pack_2399", "refreshing_pack_5999",
+                                      "rich1_pack_9999", "coin_299","coin_499","coin_999","coin_1999","coin_4999"});
 
     public List<string> price = new List<string>(); 
 
@@ -48,7 +51,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
     public void InitializePurchasing()
     {
-        Debug.Log("iap시작" + sProductIds.Count);
+
         if (IsInitialized())
             return;
 
@@ -57,17 +60,21 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         ConfigurationBuilder builder = ConfigurationBuilder.Instance(module);
 
-        foreach (var item in sProductIds)
+
+#if UNITY_ANDROID
+
+        foreach (var item in Android_sProductIds)
         {
-            builder.AddProduct(item, ProductType.Consumable, new IDs
-            {
-                { item, AppleAppStore.Name },
-                { item, GooglePlay.Name },
-            });
+            builder.AddProduct(item, ProductType.Consumable);
         }
 
+#elif UNITY_IOS
 
-
+        foreach (var item in Ios_sProductIds)
+        {
+            builder.AddProduct(item, ProductType.Consumable);
+        }
+#endif
 
         UnityPurchasing.Initialize(this, builder);
 
