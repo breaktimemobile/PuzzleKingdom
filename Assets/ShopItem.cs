@@ -211,7 +211,20 @@ public class ShopItem : MonoBehaviour
             else
             {
                 txt_price.gameObject.SetActive(true);
-                int idx = IAPManager.Instance.sProductIds.IndexOf(data["skuid"].ToString());
+
+                int idx = 0;
+
+#if UNITY_ANDROID
+
+                idx = IAPManager.Instance.Android_sProductIds.IndexOf(data["skuid"].ToString());
+
+
+#elif UNITY_IOS
+
+                idx = IAPManager.Instance.Ios_sProductIds.IndexOf(data["skuid"].ToString());
+
+#endif
+
                 txt_price.text = IAPManager.Instance.price[idx];
             }
      
