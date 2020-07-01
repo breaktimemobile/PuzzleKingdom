@@ -65,6 +65,11 @@ public class DataPopup : MonoBehaviour
         GoogleManager.Instance.Player_Data_Save();
 
 #elif UNITY_IOS
+
+        StartCoroutine(Co_Loading());
+
+        isSave = false;
+
         Cloud.OnCloudSaveComplete += CloudeSave;
 
         Cloud.Storage.Save();
@@ -74,12 +79,38 @@ public class DataPopup : MonoBehaviour
 
     public void CloudeSave(bool success)
     {
-        Cloud.OnCloudSaveComplete -= CloudeSave;
 
         Debug.Log(success ? "저장 성공" : "저장 실패");
         isSave = true;
+
+        Cloud.OnCloudSaveComplete -= CloudeSave;
+
     }
 
+    IEnumerator Co_Saving()
+    {
+        GameObject obj = null;
+
+        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_saveing") as GameObject);
+        DialogManager.GetInstance().show(obj, false);
+
+        yield return new WaitForSeconds(2f);
+
+        while (true)
+        {
+            if (isSave)
+            {
+                DialogManager.GetInstance().Close(null);
+
+                obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save_confirm") as GameObject);
+                DialogManager.GetInstance().show(obj, false);
+
+                yield return null;
+
+            }
+        }
+
+    }
 
     public void CloudeLoad(bool success)
     {
@@ -118,11 +149,15 @@ public class DataPopup : MonoBehaviour
     {
 
         DialogManager.GetInstance().Close(null);
-
 #if UNITY_ANDROID
         GoogleManager.Instance.Player_Data_Load();
 
 #elif UNITY_IOS
+
+        isSave = false;
+
+        StartCoroutine(Co_Saving());
+
         Cloud.OnCloudLoadComplete += CloudeLoad;
 
         Cloud.Storage.Load();
@@ -160,30 +195,6 @@ public class DataPopup : MonoBehaviour
 
     }
 
-    IEnumerator Co_Saving()
-    {
-        GameObject obj = null;
-
-        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_saveing") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
-
-        yield return new WaitForSeconds(2f);
-
-        while (true)
-        {
-            if (isSave)
-            {
-                DialogManager.GetInstance().Close(null);
-
-                obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save_confirm") as GameObject);
-                DialogManager.GetInstance().show(obj, false);
-
-                yield return null;
-
-            }
-        }
-
-    }
 
     IEnumerator Co_Loading()
     {

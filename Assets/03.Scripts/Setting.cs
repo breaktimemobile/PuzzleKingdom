@@ -1,4 +1,5 @@
 using Assets.Scripts.GameManager;
+using CloudOnce;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -133,7 +134,7 @@ public class Setting : MonoBehaviour
     {
         FireBaseManager.Instance.LogEvent("Setting_Login");
 
-        if (!Social.localUser.authenticated)
+        if (!Cloud.IsSignedIn)
         {
             GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/Google_Login") as GameObject);
             DialogManager.GetInstance().show(obj, false);
