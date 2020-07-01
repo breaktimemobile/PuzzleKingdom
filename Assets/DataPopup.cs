@@ -66,9 +66,10 @@ public class DataPopup : MonoBehaviour
 
 #elif UNITY_IOS
 
-        StartCoroutine(Co_Loading());
-
         isSave = false;
+
+        StartCoroutine(Co_Saving());
+
 
         Cloud.OnCloudSaveComplete += CloudeSave;
 
@@ -81,6 +82,8 @@ public class DataPopup : MonoBehaviour
     {
 
         Debug.Log(success ? "저장 성공" : "저장 실패");
+
+
         isSave = true;
 
         Cloud.OnCloudSaveComplete -= CloudeSave;

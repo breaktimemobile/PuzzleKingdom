@@ -11,7 +11,7 @@ public class CloudOnceManager : MonoBehaviour
     {
         Instance = this;
         Cloud.OnInitializeComplete += CloudOnceInitializeComplete;
-        Cloud.Initialize(true, false);
+        Cloud.Initialize(true, false,false);
     }
 
     public void DoAutoLogin()
