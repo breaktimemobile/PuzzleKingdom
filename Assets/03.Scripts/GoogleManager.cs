@@ -23,9 +23,7 @@ public class GoogleManager : MonoBehaviour
 
     public static GoogleManager Instance;
 
-    public bool isLogin = false;
-
-    string save_data;
+    public string save_data;
 
     public string _IDtoken = null;
 
@@ -215,10 +213,7 @@ public class GoogleManager : MonoBehaviour
 #endif
 
 
-        while (!isLogin)
-        {
-            yield return new WaitForSeconds(2f);
-        }
+        yield return new WaitForSeconds(0.1f);
 
         obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_saveing") as GameObject);
         DialogManager.GetInstance().show(obj, false);
@@ -230,7 +225,7 @@ public class GoogleManager : MonoBehaviour
         OpenSaveGame(filename, true);
     }
 
-    void OpenSaveGame(string _fileName, bool _saved)
+    public void OpenSaveGame(string _fileName, bool _saved)
     {
 
 #if UNITY_ANDROID
@@ -336,12 +331,11 @@ public class GoogleManager : MonoBehaviour
         DialogManager.GetInstance().show(obj, false);
 
 #endif
-            while (!isLogin)
-            {
-                yield return new WaitForSeconds(2f);
-            }
 
-         obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_loading") as GameObject);
+        yield return new WaitForSeconds(0.1f);
+
+
+        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_loading") as GameObject);
         DialogManager.GetInstance().show(obj, false);
 
         string id = Social.localUser.id;

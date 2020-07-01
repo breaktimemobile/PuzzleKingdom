@@ -56,6 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rote: {fileID: 6410794645351180538}
+  Btn_Ok: {fileID: 5886696240687814140}
 --- !u!1 &5886696239847971334
 GameObject:
   m_ObjectHideFlags: 0

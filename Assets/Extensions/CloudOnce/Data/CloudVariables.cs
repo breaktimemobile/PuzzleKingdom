@@ -13,5 +13,12 @@ namespace CloudOnce
     /// </summary>
     public static class CloudVariables
     {
+        private static readonly CloudString s_player_Data = new CloudString("Player_Data", PersistenceType.Latest, "");
+
+        public static string Player_Data
+        {
+            get { return s_player_Data.Value; }
+            set { s_player_Data.Value = value; }
+        }
     }
 }

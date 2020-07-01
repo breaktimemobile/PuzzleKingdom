@@ -307,14 +307,27 @@ public class Shop : MonoBehaviour
 
 
                 break;
+
             default:
                 break;
+
         }
+
 
         Game1Manager.GetInstance()?.Set_Txt_Item();
         G3BoardManager.GetInstance()?.Set_Item_Txt();
         DataManager.Instance.Save_Player_Data();
 
+#if UNITY_ANDROID
+        GoogleManager.Instance.Player_Data_Save();
+#elif UNITY_IOS
+        string jsonStr = JsonUtility.ToJson(DataManager.Instance.state_Player);
+        string aes = AESCrypto.instance.AESEncrypt128(jsonStr);
+
+        CloudVariables.Player_Data = aes;
+
+        Cloud.Storage.Save();
+#endif
     }
 }
 
