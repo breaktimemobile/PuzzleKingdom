@@ -1,5 +1,6 @@
 using Assets.Scripts.GameManager;
 using Assets.Scripts.Utils;
+using CloudOnce;
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
@@ -322,7 +323,7 @@ public class Shop : MonoBehaviour
         GoogleManager.Instance.Player_Data_Save();
 #elif UNITY_IOS
         string jsonStr = JsonUtility.ToJson(DataManager.Instance.state_Player);
-        string aes = AESCrypto.instance.AESEncrypt128(jsonStr);
+        string aes = AESCrypto.AESEncrypt128(jsonStr);
 
         CloudVariables.Player_Data = aes;
 
