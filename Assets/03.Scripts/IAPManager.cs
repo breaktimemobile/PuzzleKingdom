@@ -93,7 +93,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         foreach (var item in controller.products.all)
         {
-            Debug.Log("price " + item.metadata.localizedPrice.ToString());
+            //Debug.Log("price " + item.metadata.localizedPrice.ToString());
                 Find_Sing(item.metadata.isoCurrencyCode.ToString());
 
                 price.Add(sign + " " + item.metadata.localizedPrice.ToString());   

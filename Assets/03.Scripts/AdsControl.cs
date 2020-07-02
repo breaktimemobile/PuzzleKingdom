@@ -263,11 +263,14 @@ public class AdsControl : MonoBehaviour
     public void HandleAdLoaded(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleAdLoaded event received");
+        Debug.Log("배너 성공");
     }
 
     public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
         MonoBehaviour.print("HandleFailedToReceiveAd event received with message: " + args.Message);
+        Debug.Log("배너 실패");
+
     }
 
     public void HandleAdOpened(object sender, EventArgs args)
