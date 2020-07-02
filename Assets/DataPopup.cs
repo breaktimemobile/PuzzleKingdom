@@ -106,6 +106,8 @@ public class DataPopup : MonoBehaviour
 
         while (true)
         {
+            Debug.Log(isSave);
+
             if (isSave)
             {
                 DialogManager.GetInstance().Close(null);
@@ -115,7 +117,7 @@ public class DataPopup : MonoBehaviour
 
                 break;
             }
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
 
         }
 
@@ -215,8 +217,11 @@ public class DataPopup : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
 
+
         while (true)
         {
+            Debug.Log(isSave);
+
             if (isSave)
             {
                 DialogManager.GetInstance().Close(null);
@@ -229,7 +234,7 @@ public class DataPopup : MonoBehaviour
 
             }
 
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
 
         }
 
