@@ -68,6 +68,11 @@ public class DataPopup : MonoBehaviour
 
         isSave = false;
 
+        string jsonStr = JsonUtility.ToJson(DataManager.Instance.state_Player);
+        string aes = AESCrypto.AESEncrypt128(jsonStr);
+
+        CloudVariables.Player_Data = aes;
+
         StartCoroutine(Co_Saving());
 
 
@@ -216,7 +221,9 @@ public class DataPopup : MonoBehaviour
                 DialogManager.GetInstance().Close(null);
 
                 obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load_confirm") as GameObject);
-                DialogManager.GetInstance().show(obj, false); yield return null;
+                DialogManager.GetInstance().show(obj, false);
+
+                yield return null;
 
             }
         }
