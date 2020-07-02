@@ -173,4 +173,14 @@ public class IAPManager : MonoBehaviour, IStoreListener
         }
 
     }
+
+    public void Restorepurchase()
+    {
+
+        is_extensions.GetExtension<IAppleExtensions>().RestoreTransactions(result => {
+
+            FindObjectOfType<Shop>().Restore(result);
+
+        });
+    }
 }

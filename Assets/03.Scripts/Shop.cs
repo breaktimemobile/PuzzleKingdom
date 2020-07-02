@@ -42,6 +42,7 @@ public class Shop : MonoBehaviour
     public Text txt_gold;
 
     public GameObject img_network;
+    public Button btn_Restore;
 
     private void Start()
     {
@@ -72,7 +73,7 @@ public class Shop : MonoBehaviour
         }
 
         txt_gold.GetComponent<OverlayNumber>().SetStartNumber(DataManager.Instance.state_Player.LocalData_Diamond);
-
+        btn_Restore.onClick.AddListener(() => IAPManager.Instance.Restorepurchase());
     }
 
     public void OnclickSetting()
@@ -330,6 +331,14 @@ public class Shop : MonoBehaviour
         Cloud.Storage.Save();
 #endif
     }
+
+    public void Restore(bool isSuccess)
+    {
+        GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/shop_restore") as GameObject);
+        obj.GetComponent<DataPopup>().Ser_Restore(isSuccess); 
+        DialogManager.GetInstance().show(obj, false);
+    }
+
 }
 
 public enum Item_Type

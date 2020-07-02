@@ -24,6 +24,9 @@ public class Setting : MonoBehaviour
 
     public GameObject btn_terms;
 
+    public GameObject btn_google;
+    public GameObject btn_ios;
+
     private void Start()
 	{
 		this.Init();
@@ -44,9 +47,21 @@ public class Setting : MonoBehaviour
 		this.m_img_music_switch.sprite = ((this.audioManager.Switch_bg == 1) ? this.m_asset_switch_on : this.m_asset_switch_off);
 		this.m_img_effect_switch.sprite = ((this.audioManager.Switch_eff == 1) ? this.m_asset_switch_on : this.m_asset_switch_off);
         btn_terms.SetActive(Application.systemLanguage == SystemLanguage.Korean);
+
+#if UNITY_ANDROID
+
+        btn_google.SetActive(true);
+        btn_ios.SetActive(false);
+
+#elif UNITY_IOS
+        btn_google.SetActive(false);
+        btn_ios.SetActive(true);
+#endif
+
+
     }
 
-	public void OnClickMusicBtn()
+    public void OnClickMusicBtn()
 	{
 		if (this.audioManager.Switch_bg == 1)
 		{
@@ -137,6 +152,7 @@ public class Setting : MonoBehaviour
         if (!Cloud.IsSignedIn)
         {
             GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/Google_Login") as GameObject);
+            obj.GetComponent<DataPopup>().Set_Google();
             DialogManager.GetInstance().show(obj, false);
 
             
@@ -155,16 +171,28 @@ public class Setting : MonoBehaviour
 
     public void OnClickSave()
     {
-
-        GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
+        if (!Social.localUser.authenticated)
+        {
+            CloudOnceManager.Instance.OnClickGoogle();
+        }
+        else
+        {
+            GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save") as GameObject);
+            DialogManager.GetInstance().show(obj, false);
+        }
 
     }
 
     public void OnClickLoad()
     {
-
-        GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
+        if (!Social.localUser.authenticated)
+        {
+            CloudOnceManager.Instance.OnClickGoogle();
+        }
+        else
+        {
+            GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load") as GameObject);
+            DialogManager.GetInstance().show(obj, false);
+        }
     }
 }

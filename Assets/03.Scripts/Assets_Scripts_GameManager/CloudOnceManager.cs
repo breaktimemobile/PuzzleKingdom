@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CloudOnce;
+using Assets.Scripts.Utils;
 
 public class CloudOnceManager : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class CloudOnceManager : MonoBehaviour
         if (!Social.localUser.authenticated)
         {
             GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/Google_Login") as GameObject);
+            obj.GetComponent<DataPopup>().Set_Google();
             DialogManager.GetInstance().show(obj, false);
         }
         else
@@ -195,6 +197,120 @@ public class CloudOnceManager : MonoBehaviour
         {
             Cloud.Leaderboards.ShowOverlay();
         }
+
+    }
+
+
+    public bool isSave = false;
+
+    public void CloudeSave(bool success)
+    {
+
+        Debug.Log(success ? "저장 성공" : "저장 실패");
+
+
+        isSave = true;
+
+        Cloud.OnCloudSaveComplete -= CloudeSave;
+
+
+    }
+
+    public void Saving()
+    {
+        StartCoroutine("Co_Saving");
+
+    }
+
+    IEnumerator Co_Saving()
+    {
+        Debug.Log("Co_Saving");
+
+        GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_saveing") as GameObject);
+        DialogManager.GetInstance().show(obj, false);
+
+        yield return new WaitForSeconds(2f);
+
+        DialogManager.GetInstance().Close(null);
+
+        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save_confirm") as GameObject);
+        DialogManager.GetInstance().show(obj, false);
+
+
+    }
+
+    public void CloudeLoad(bool success)
+    {
+        Cloud.OnCloudLoadComplete -= CloudeLoad;
+
+        Debug.Log(success ? "로드 성공 " : "로드 실패");
+
+        if (!success)
+            return;
+
+        isSave = true;
+
+        string str = CloudVariables.Player_Data;
+
+
+        if (str != "")
+        {
+
+            var aes = AESCrypto.AESDecrypt128(str);
+            var data = JsonUtility.FromJson<State_Player>(aes);
+
+            DataManager.Instance.state_Player = data;
+
+            DataManager.Instance.Save_Player_Data();
+
+            Language.GetInstance().Set((SystemLanguage)DataManager.Instance.state_Player.LocalData_LanguageId);
+
+            Main obj = FindObjectOfType(typeof(Main)) as Main;
+            obj.Reload();
+
+        }
+
+
+    }
+
+
+    public void Loading()
+    {
+        StartCoroutine("Co_Loading");
+
+    }
+
+    IEnumerator Co_Loading()
+    {
+        GameObject obj = null;
+
+        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_loading") as GameObject);
+        DialogManager.GetInstance().show(obj, false);
+
+        yield return new WaitForSeconds(2f);
+
+
+
+        while (true)
+        {
+            Debug.Log(isSave);
+
+            if (isSave)
+            {
+                DialogManager.GetInstance().Close(null);
+
+                obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load_confirm") as GameObject);
+                DialogManager.GetInstance().show(obj, false);
+
+                break;
+
+
+            }
+
+            yield return new WaitForSeconds(0.1f);
+
+        }
+
 
     }
 }

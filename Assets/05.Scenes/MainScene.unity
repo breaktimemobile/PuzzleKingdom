@@ -1043,7 +1043,6 @@ MonoBehaviour:
   save_data: 
   _IDtoken: 
   _authCode: 
-  isSave: 0
 --- !u!4 &626273328
 Transform:
   m_ObjectHideFlags: 0
@@ -1070,6 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f920c8e788c26a94bbf8de38cd403b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSave: 0
 --- !u!1 &650016195
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class DataPopup : MonoBehaviour
 
     public GameObject Btn_Ok;
 
+    public GameObject btn_google;
+    public GameObject btn_ios;
 
     private void Start()
     {
@@ -58,6 +60,7 @@ public class DataPopup : MonoBehaviour
     public void OnClickSave()
     {
 
+
         DialogManager.GetInstance().Close(null);
 
 
@@ -82,7 +85,33 @@ public class DataPopup : MonoBehaviour
     }
 
 
- 
+    public void Ser_Restore(bool success)
+    {
+        transform.Find("txt_load").GetComponent<LanguageComponent>().SetText(success ? "TXT_NO_50136" : "TXT_NO_50137");
+
+    }
+    public void Set_Google()
+    {
+
+
+#if UNITY_ANDROID
+
+        transform.Find("txt_load").GetComponent<LanguageComponent>().SetText("TXT_NO_50131");
+        btn_google.SetActive(true);
+        btn_ios.SetActive(false);
+
+#elif UNITY_IOS
+
+        transform.Find("txt_load").GetComponent<LanguageComponent>().SetText("TXT_NO_50134");
+        btn_google.SetActive(false);
+        btn_ios.SetActive(true);
+
+#endif
+
+
+    }
+
+
     public void OnClickLoad()
     {
 
