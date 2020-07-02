@@ -155,11 +155,6 @@ public class G3WinDialog : MonoBehaviour
 
         AudioManager.GetInstance().PlayBgMusic("sound_ingame", true);
 
-        if (this.Level % 5 == 0)
-		{
-            //AdsManager.GetInstance().Play(AdsManager.AdType.Finish, null, null, 5, null);
-            AdsControl.Instance.showAds();
-		}
 	}
 
 	public void OnClickAgain()

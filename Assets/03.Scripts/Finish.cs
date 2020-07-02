@@ -231,7 +231,6 @@ public class Finish : MonoBehaviour
 	private void ShowFinish()
 	{
         Debug.Log("³¡³µÀ»¶§");
-        AdsControl.Instance.showAds();
 		DialogManager.GetInstance().Close(delegate
 		{
 			int gameID = this.GameID;
