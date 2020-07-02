@@ -69,16 +69,16 @@ public class DataPopup : MonoBehaviour
 
 #elif UNITY_IOS
 
-        GoogleManager.Instance.isSave = false;
+        CloudOnceManager.Instance.isSave = false;
 
-        GoogleManager.Instance.Saving();
+        CloudOnceManager.Instance.Saving();
 
         string jsonStr = JsonUtility.ToJson(DataManager.Instance.state_Player);
         string aes = AESCrypto.AESEncrypt128(jsonStr);
 
         CloudVariables.Player_Data = aes;
 
-        Cloud.OnCloudSaveComplete += GoogleManager.Instance.CloudeSave;
+        Cloud.OnCloudSaveComplete += CloudOnceManager.Instance.CloudeSave;
 
         Cloud.Storage.Save();
 #endif
@@ -121,11 +121,11 @@ public class DataPopup : MonoBehaviour
 
 #elif UNITY_IOS
 
-        GoogleManager.Instance.isSave = false;
+        CloudOnceManager.Instance.isSave = false;
 
-        GoogleManager.Instance.Loading();
+        CloudOnceManager.Instance.Loading();
 
-        Cloud.OnCloudLoadComplete += GoogleManager.Instance.CloudeLoad;
+        Cloud.OnCloudLoadComplete += CloudOnceManager.Instance.CloudeLoad;
 
         Cloud.Storage.Load();
 #endif
