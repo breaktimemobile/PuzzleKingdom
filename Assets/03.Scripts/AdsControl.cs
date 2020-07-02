@@ -45,7 +45,6 @@ public class AdsControl : MonoBehaviour
     private static AdsControl _instance;
     InterstitialAd interstitial;
     RewardedAd rewardedAd;
-    BannerView bannerTopView;
     BannerView bannerBtmView;
 
     public static AdsControl Instance { get { return _instance; } }
@@ -119,6 +118,8 @@ public class AdsControl : MonoBehaviour
 #endif
 
         this.bannerBtmView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Center);
+        //this.bannerBtmView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Center);
+        //this.bannerBtmView = new BannerView(adUnitId, AdSize.MediumRectangle, AdPosition.Center);
 
         // Register for ad events.
         this.bannerBtmView.OnAdLoaded += this.HandleAdLoaded;
@@ -135,23 +136,13 @@ public class AdsControl : MonoBehaviour
     {
         if (DataManager.Instance.state_Player.RemoveAds)
         {
-            bannerTopView.Hide();
             bannerBtmView.Hide();
             return;
 
         }
 
-        if (Top)
-        {
-            bannerBtmView.Hide();
-            bannerTopView.Show();
-        }
-        else
-        {
-            bannerBtmView.Show();
-            bannerTopView.Hide();
+        bannerBtmView.Show();
 
-        }
     }
 
     #endregion
