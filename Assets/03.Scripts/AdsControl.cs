@@ -75,7 +75,7 @@ public class AdsControl : MonoBehaviour
 
 #if UNITY_ANDROID
         string appId = "ca-app-pub-4682698622407711~3805835069";
-#elif UNITY_IPHONE
+#elif UNITY_IOS
         string appId = "ca-app-pub-4682698622407711~1898065790";
 #else
         string appId = "unexpected_platform";
@@ -90,7 +90,6 @@ public class AdsControl : MonoBehaviour
         this.RequestRewardedAd();
         this.RequestInterstitial();
         this.RequestBtmBanner();
-        this.RequestTopBanner();
 
     }
 
@@ -104,57 +103,22 @@ public class AdsControl : MonoBehaviour
               .AddExtra("color_bg", "9B30FF")
               .Build();
     }
-
-    public void showAds()
-    {
-
-        //int adsCounter = PlayerPrefs.GetInt("AdsCounter");
-        //PlayerPrefs.SetInt("AdsCounter", adsCounter);
-
-        //if (adsCounter >= 2)
-        //{
-        //    if (PlayerPrefs.GetInt("RemoveAds") == 0)
-        //    {
-        //        if (interstitial.IsLoaded())
-        //            interstitial.Show();
-
-        //    }
-        //    adsCounter = 0;
-        //}
-        //else
-        //{
-        //    adsCounter++;
-        //}
-
-        //PlayerPrefs.SetInt("AdsCounter", adsCounter);
-
-    }
-
+    
     #region Banner
 
     private void RequestBtmBanner()
     {
         // These ad units are configured to always serve test ads.
-#if UNITY_EDITOR
-        string adUnitId = "unused";
-#elif UNITY_ANDROID
+
+#if UNITY_ANDROID
         string adUnitId = "ca-app-pub-4682698622407711/3319298641";
-#elif UNITY_IPHONE
+#elif UNITY_IOS
         string adUnitId = "ca-app-pub-4682698622407711/4141085753";
 #else
         string adUnitId = "unexpected_platform";
 #endif
 
-        // Clean up banner ad before creating a new one.
-        if (this.bannerBtmView != null)
-        {
-            this.bannerBtmView.Destroy();
-        }
-
-        //1920 130
-        // Create a 320x50 banner at the top of the screen.
-
-        this.bannerBtmView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+        this.bannerBtmView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Center);
 
         // Register for ad events.
         this.bannerBtmView.OnAdLoaded += this.HandleAdLoaded;
@@ -165,39 +129,6 @@ public class AdsControl : MonoBehaviour
 
         // Load a banner ad.
         this.bannerBtmView.LoadAd(this.CreateAdRequest());
-    }
-
-    private void RequestTopBanner()
-    {
-        // These ad units are configured to always serve test ads.
-#if UNITY_EDITOR
-        string adUnitId = "unused";
-#elif UNITY_ANDROID
-        string adUnitId = "ca-app-pub-4682698622407711/3319298641";
-#elif UNITY_IPHONE
-        string adUnitId = "ca-app-pub-4682698622407711/4141085753";
-#else
-        string adUnitId = "unexpected_platform";
-#endif
-
-        // Clean up banner ad before creating a new one.
-        if (this.bannerTopView != null)
-        {
-            this.bannerTopView.Destroy();
-        }
-
-        this.bannerTopView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
-
-        // Register for ad events.
-        this.bannerTopView.OnAdLoaded += this.HandleAdLoaded;
-        this.bannerTopView.OnAdFailedToLoad += this.HandleAdFailedToLoad;
-        this.bannerTopView.OnAdOpening += this.HandleAdOpened;
-        this.bannerTopView.OnAdClosed += this.HandleAdClosed;
-        this.bannerTopView.OnAdLeavingApplication += this.HandleAdLeftApplication;
-
-        // Load a banner ad.
-        this.bannerTopView.LoadAd(this.CreateAdRequest());
-        BannerShow(false);
     }
 
     public void BannerShow(bool Top)
@@ -234,7 +165,7 @@ public class AdsControl : MonoBehaviour
         string adUnitId = "unused";
 #elif UNITY_ANDROID
         string adUnitId = "ca-app-pub-4682698622407711/4927345041";  
-#elif UNITY_IPHONE
+#elif UNITY_IOS
         string adUnitId = "ca-app-pub-4682698622407711/3949514063";
 #else
         string adUnitId = "unexpected_platform";
@@ -292,7 +223,7 @@ public class AdsControl : MonoBehaviour
         string adUnitId = "unused";
 #elif UNITY_ANDROID
         string adUnitId = "ca-app-pub-4682698622407711/8866590053";
-#elif UNITY_IPHONE
+#elif UNITY_IOS
         string adUnitId = "ca-app-pub-4682698622407711/9201840742";
 #else
         string adUnitId = "unexpected_platform";
@@ -462,7 +393,7 @@ public class AdsControl : MonoBehaviour
         Application.OpenURL("https://itunes.apple.com/us/app/color-flow-puzzle/id1436566275?ls=1&mt=8");
 #elif UNITY_ANDROID
         Application.OpenURL("https://play.google.com/store/apps/details?id=com.ponygames.MagicBlockPuzzle");
-#elif UNITY_IPHONE
+#elif UNITY_IOS
         Application.OpenURL("https://itunes.apple.com/us/app/color-flow-puzzle/id1436566275?ls=1&mt=8");
 #else
         Application.OpenURL("https://play.google.com/store/apps/details?id=com.ponygames.MagicBlockPuzzle");
@@ -470,7 +401,7 @@ public class AdsControl : MonoBehaviour
 
 
     }
-    
+
     public void Ads_Reward()
     {
         FireBaseManager.Instance.LogEvent("Reward_End");
