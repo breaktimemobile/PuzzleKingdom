@@ -14,7 +14,6 @@ public class DataPopup : MonoBehaviour
 
     public GameObject Btn_Ok;
 
-    bool isSave = false;
 
     private void Start()
     {
@@ -61,101 +60,29 @@ public class DataPopup : MonoBehaviour
 
         DialogManager.GetInstance().Close(null);
 
+
 #if UNITY_ANDROID
         GoogleManager.Instance.Player_Data_Save();
 
 #elif UNITY_IOS
 
-        isSave = false;
+        GoogleManager.Instance.isSave = false;
+
+        GoogleManager.Instance.Saving();
 
         string jsonStr = JsonUtility.ToJson(DataManager.Instance.state_Player);
         string aes = AESCrypto.AESEncrypt128(jsonStr);
 
         CloudVariables.Player_Data = aes;
 
-        StartCoroutine(Co_Saving());
-
-
-        Cloud.OnCloudSaveComplete += CloudeSave;
+        Cloud.OnCloudSaveComplete += GoogleManager.Instance.CloudeSave;
 
         Cloud.Storage.Save();
 #endif
     }
 
 
-    public void CloudeSave(bool success)
-    {
-
-        Debug.Log(success ? "저장 성공" : "저장 실패");
-
-
-        isSave = true;
-
-        Cloud.OnCloudSaveComplete -= CloudeSave;
-
-    }
-
-    IEnumerator Co_Saving()
-    {
-        GameObject obj = null;
-
-        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_saveing") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
-
-        yield return new WaitForSeconds(2f);
-
-        while (true)
-        {
-            Debug.Log(isSave);
-
-            if (isSave)
-            {
-                DialogManager.GetInstance().Close(null);
-
-                obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save_confirm") as GameObject);
-                DialogManager.GetInstance().show(obj, false);
-
-                break;
-            }
-            yield return new WaitForSeconds(0.1f);
-
-        }
-
-    }
-
-    public void CloudeLoad(bool success)
-    {
-        Cloud.OnCloudLoadComplete -= CloudeLoad;
-
-        if (!success)
-            return;
-
-        isSave = true;
-
-        string str = CloudVariables.Player_Data;
-
-        Debug.Log(success ? "로드 성공 " + str : "로드 실패");
-
-        if (str != "")
-        {
-
-            var aes = AESCrypto.AESDecrypt128(str);
-            var data = JsonUtility.FromJson<State_Player>(aes);
-
-            DataManager.Instance.state_Player = data;
-
-            DataManager.Instance.Save_Player_Data();
-
-            Language.GetInstance().Set((SystemLanguage)DataManager.Instance.state_Player.LocalData_LanguageId);
-
-            Main obj = FindObjectOfType(typeof(Main)) as Main;
-            obj.Reload();
-
-        }
-
-
-    }
-
+ 
     public void OnClickLoad()
     {
 
@@ -165,11 +92,11 @@ public class DataPopup : MonoBehaviour
 
 #elif UNITY_IOS
 
-        isSave = false;
+        GoogleManager.Instance.isSave = false;
 
-        StartCoroutine(Co_Loading());
+        GoogleManager.Instance.Loading();
 
-        Cloud.OnCloudLoadComplete += CloudeLoad;
+        Cloud.OnCloudLoadComplete += GoogleManager.Instance.CloudeLoad;
 
         Cloud.Storage.Load();
 #endif
@@ -207,37 +134,5 @@ public class DataPopup : MonoBehaviour
     }
 
 
-    IEnumerator Co_Loading()
-    {
-        GameObject obj = null;
-
-        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_loading") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
-
-        yield return new WaitForSeconds(2f);
-
-
-
-        while (true)
-        {
-            Debug.Log(isSave);
-
-            if (isSave)
-            {
-                DialogManager.GetInstance().Close(null);
-
-                obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load_confirm") as GameObject);
-                DialogManager.GetInstance().show(obj, false);
-
-                break;
-
-
-            }
-
-            yield return new WaitForSeconds(0.1f);
-
-        }
-
-
-    }
+   
 }

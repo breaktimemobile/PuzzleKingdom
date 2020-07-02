@@ -39,7 +39,7 @@ public class FireBaseManager : MonoBehaviour
             }
         });
 
-        Get_Editor_Gift();
+       // Get_Editor_Gift();
 
     }
 
