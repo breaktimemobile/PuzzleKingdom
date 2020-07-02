@@ -190,7 +190,7 @@ public class Shop : MonoBehaviour
 
                 DataManager.Instance.state_Player.RemoveAds = true;
                 transform.GetComponentsInChildren<ShopItem>(true)[0].gameObject.SetActive(false);
-                AdsControl.Instance.BannerShow(false);
+                AdsControl.Instance.BannerShow();
                 break;
             case Shop_itme_type.package:
 

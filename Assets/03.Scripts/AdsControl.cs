@@ -117,9 +117,9 @@ public class AdsControl : MonoBehaviour
         string adUnitId = "unexpected_platform";
 #endif
 
-        this.bannerBtmView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Center);
-        //this.bannerBtmView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Center);
-        //this.bannerBtmView = new BannerView(adUnitId, AdSize.MediumRectangle, AdPosition.Center);
+        this.bannerBtmView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+        //this.bannerBtmView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
+        //this.bannerBtmView = new BannerView(adUnitId, AdSize.MediumRectangle, AdPosition.Bottom);
 
         // Register for ad events.
         this.bannerBtmView.OnAdLoaded += this.HandleAdLoaded;
@@ -130,9 +130,11 @@ public class AdsControl : MonoBehaviour
 
         // Load a banner ad.
         this.bannerBtmView.LoadAd(this.CreateAdRequest());
+
+        BannerShow();
     }
 
-    public void BannerShow(bool Top)
+    public void BannerShow()
     {
         if (DataManager.Instance.state_Player.RemoveAds)
         {
@@ -262,13 +264,11 @@ public class AdsControl : MonoBehaviour
 
     public void HandleAdLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleAdLoaded event received");
         Debug.Log("배너 성공");
     }
 
     public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        MonoBehaviour.print("HandleFailedToReceiveAd event received with message: " + args.Message);
         Debug.Log("배너 실패");
 
     }

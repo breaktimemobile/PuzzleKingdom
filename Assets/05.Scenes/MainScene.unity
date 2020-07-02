@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 752658440}
   - component: {fileID: 752658439}
   m_Layer: 5
-  m_Name: btn_rank (1)
+  m_Name: btn_ac
   m_TagString: 
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1968,7 +1968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1205924130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2696,7 +2696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1a15c051e7a3234455a92cc30fc184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_id: TXT_NO_50125
+  m_id: TXT_NO_10004
   m_suffix: 
   m_linespace_ru: 0
   m_linespace_en: 0
@@ -5320,6 +5320,7 @@ MonoBehaviour:
   - {fileID: 650016196}
   - {fileID: 999191904}
   - {fileID: 239156544}
+  - {fileID: 752658438}
 --- !u!114 &1789893930573738142
 MonoBehaviour:
   m_ObjectHideFlags: 0
