@@ -113,9 +113,10 @@ public class DataPopup : MonoBehaviour
                 obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save_confirm") as GameObject);
                 DialogManager.GetInstance().show(obj, false);
 
-                yield return null;
-
+                break;
             }
+            yield return null;
+
         }
 
     }
@@ -164,7 +165,7 @@ public class DataPopup : MonoBehaviour
 
         isSave = false;
 
-        StartCoroutine(Co_Saving());
+        StartCoroutine(Co_Loading());
 
         Cloud.OnCloudLoadComplete += CloudeLoad;
 
@@ -223,11 +224,15 @@ public class DataPopup : MonoBehaviour
                 obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load_confirm") as GameObject);
                 DialogManager.GetInstance().show(obj, false);
 
-                yield return null;
+                break;
+
 
             }
+
+            yield return null;
+
         }
 
- 
+
     }
 }
