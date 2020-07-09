@@ -178,16 +178,16 @@ public class MainScene : MonoBehaviour
         if (num == 1)
         {
 
-            //GlobalEventHandle.EmitClickPageButtonHandle("G00106", 0);
-            //return;
+            GlobalEventHandle.EmitClickPageButtonHandle("G00106", 0);
+            return;
 
-            if (DataManager.Instance.state_Player.LocalData_guide_game01 == 0)
-            {
-                PlayerPrefs.SetInt("BoardSize", 5);
+            //if (DataManager.Instance.state_Player.LocalData_guide_game01 == 0)
+            //{
+            //    PlayerPrefs.SetInt("BoardSize", 5);
 
-                GlobalEventHandle.EmitClickPageButtonHandle("G00103", 0);
-                return;
-            }
+            //    GlobalEventHandle.EmitClickPageButtonHandle("G00103", 0);
+            //    return;
+            //}
 
 
         }
