@@ -167,7 +167,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.block.puzzle.puzzlego.number.puzzledom.Kingdom
   buildNumber: {}
-  AndroidBundleVersionCode: 29
+  AndroidBundleVersionCode: 30
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 29
   AndroidPreferredInstallLocation: 1

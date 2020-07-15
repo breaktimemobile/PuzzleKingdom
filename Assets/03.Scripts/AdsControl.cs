@@ -40,8 +40,8 @@ public class AdsControl : MonoBehaviour
     public G1Block block;
     public int awardValue;
 
-    public int achive_type =0;
-    public int achive_val =0;
+    public int achive_type = 0;
+    public int achive_val = 0;
     private static AdsControl _instance;
     InterstitialAd interstitial;
     RewardedAd rewardedAd;
@@ -102,7 +102,7 @@ public class AdsControl : MonoBehaviour
               .AddExtra("color_bg", "9B30FF")
               .Build();
     }
-    
+
     #region Banner
 
     private void RequestBtmBanner()
@@ -117,7 +117,9 @@ public class AdsControl : MonoBehaviour
         string adUnitId = "unexpected_platform";
 #endif
 
-        this.bannerBtmView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+        AdSize adSize = new AdSize(450, 100);
+
+        this.bannerBtmView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
         //this.bannerBtmView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
         //this.bannerBtmView = new BannerView(adUnitId, AdSize.MediumRectangle, AdPosition.Bottom);
 
@@ -269,7 +271,7 @@ public class AdsControl : MonoBehaviour
 
     public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        Debug.Log("배너 실패");
+        Debug.Log("배너 실패 " + args.Message);
 
     }
 
@@ -479,21 +481,21 @@ public class AdsControl : MonoBehaviour
                     return;
                 }
 
-                GM.GetInstance().AddDiamond(achive_val *2, true);
+                GM.GetInstance().AddDiamond(achive_val * 2, true);
                 FindObjectOfType<Task>().Refresh();
                 DialogManager.GetInstance().Close(null);
 
                 break;
 
             case Reward_Type.shop_ads:
-                
+
                 GiftTime = DateTime.Now.AddMinutes(10);
                 DataManager.Instance.state_Player.LocalData_Shop_Time = GiftTime.ToString();
                 DataManager.Instance.Save_Player_Data();
 
                 FindObjectOfType<Shop>().ads_item.Set_Timer();
 
-                int ran = UnityEngine.Random.Range(10,100);
+                int ran = UnityEngine.Random.Range(10, 100);
                 GM.GetInstance().AddDiamond(ran);
 
                 FireBaseManager.Instance.LogEvent("Shop_Ads");
