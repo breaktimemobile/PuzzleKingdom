@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1a15c051e7a3234455a92cc30fc184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_id: TXT_NO_20018
+  m_id: TXT_NO_50139
   m_suffix: 
   m_linespace_ru: 1
   m_linespace_en: 0
@@ -1649,7 +1649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBB34\uB8CC \uBCF4\uC0C1"
+  m_Text: "\uAD11\uACE0 \uBCF4\uACE0 \uBCF4\uC0C1 \uBC1B\uAE30"
 --- !u!222 &921340158
 CanvasRenderer:
   m_ObjectHideFlags: 0

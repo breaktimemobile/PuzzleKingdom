@@ -130,7 +130,7 @@ public class G3BoardManager : MonoBehaviour
         if (DataManager.Instance.state_Player.LocalData_Game_Time == "-1")
         {
             btn_ads.interactable = true;
-            txt_timer.GetComponent<LanguageComponent>().SetText("TXT_NO_20018");
+            txt_timer.GetComponent<LanguageComponent>().SetText("TXT_NO_50139");
 
         }
         else
@@ -152,7 +152,7 @@ public class G3BoardManager : MonoBehaviour
         if (LateTime.TotalSeconds <= 0)
         {
             btn_ads.interactable = true;
-            txt_timer.GetComponent<LanguageComponent>().SetText("TXT_NO_20018");
+            txt_timer.GetComponent<LanguageComponent>().SetText("TXT_NO_50139");
 
         }
         else

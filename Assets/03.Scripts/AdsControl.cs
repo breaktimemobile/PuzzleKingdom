@@ -7,6 +7,10 @@ using System;
 using UnityEngine.UI;
 using Assets.Scripts.GameManager;
 
+#if UNITY_IOS
+using UnityEngine.iOS;
+#endif
+
 public enum Reward_Type
 {
     game1Finish,
@@ -103,7 +107,7 @@ public class AdsControl : MonoBehaviour
               .Build();
     }
 
-    #region Banner
+#region Banner
 
     private void RequestBtmBanner()
     {
@@ -149,9 +153,9 @@ public class AdsControl : MonoBehaviour
 
     }
 
-    #endregion
+#endregion
 
-    #region Reward
+#region Reward
 
     private void RequestRewardedAd()
     {
@@ -207,9 +211,9 @@ public class AdsControl : MonoBehaviour
         }
     }
 
-    #endregion
+#endregion
 
-    #region interstitial
+#region interstitial
 
     private void RequestInterstitial()
     {
@@ -260,9 +264,9 @@ public class AdsControl : MonoBehaviour
         }
     }
 
-    #endregion
+#endregion
 
-    #region Banner callback handlers
+#region Banner callback handlers
 
     public void HandleAdLoaded(object sender, EventArgs args)
     {
@@ -290,9 +294,9 @@ public class AdsControl : MonoBehaviour
         MonoBehaviour.print("HandleAdLeftApplication event received");
     }
 
-    #endregion
+#endregion
 
-    #region Interstitial callback handlers
+#region Interstitial callback handlers
 
     public void HandleInterstitialLoaded(object sender, EventArgs args)
     {
@@ -321,9 +325,9 @@ public class AdsControl : MonoBehaviour
         MonoBehaviour.print("HandleInterstitialLeftApplication event received");
     }
 
-    #endregion
+#endregion
 
-    #region RewardedAd callback handlers
+#region RewardedAd callback handlers
 
     public void HandleRewardedAdLoaded(object sender, EventArgs args)
     {
@@ -381,18 +385,15 @@ public class AdsControl : MonoBehaviour
 
         }
     }
-    #endregion
+#endregion
 
     public void RateMyGame()
     {
-#if UNITY_EDITOR
-        Application.OpenURL("https://itunes.apple.com/us/app/color-flow-puzzle/id1436566275?ls=1&mt=8");
-#elif UNITY_ANDROID
-        Application.OpenURL("https://play.google.com/store/apps/details?id=com.ponygames.MagicBlockPuzzle");
+
+#if UNITY_ANDROID
+        Application.OpenURL("https://play.google.com/store/apps/details?id=com.block.puzzle.puzzlego.number.puzzledom.Kingdom");
 #elif UNITY_IOS
-        Application.OpenURL("https://itunes.apple.com/us/app/color-flow-puzzle/id1436566275?ls=1&mt=8");
-#else
-        Application.OpenURL("https://play.google.com/store/apps/details?id=com.ponygames.MagicBlockPuzzle");
+         Device.RequestStoreReview());
 #endif
 
 

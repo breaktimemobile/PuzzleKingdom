@@ -6,6 +6,9 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+#if UNITY_IOS
+using UnityEngine.iOS;
+#endif
 /*
  * This script will show information for UI when game over (Merge Block Game)
  */
@@ -185,7 +188,11 @@ public class G1UIManager : MonoBehaviour
     {
         FireBaseManager.Instance.LogEvent("Puzzle_Mix_Result_Review");
 
-        Application.OpenURL("https://play.google.com/store/apps/details?id=" + Application.identifier);
+#if UNITY_ANDROID
+        Application.OpenURL("https://play.google.com/store/apps/details?id=com.block.puzzle.puzzlego.number.puzzledom.Kingdom");
+#elif UNITY_IOS
+         Device.RequestStoreReview());
+#endif
     }
-    
+
 }

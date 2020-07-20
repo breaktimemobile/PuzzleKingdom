@@ -5,6 +5,9 @@ using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
+#if UNITY_IOS
+using UnityEngine.iOS;
+#endif
 using UnityEngine.UI;
 /*
  * this class will show information of game UI in game over
@@ -182,10 +185,14 @@ public class G2UIManager : MonoBehaviour
 	{
         FireBaseManager.Instance.LogEvent("2048_Result_Review");
 
-        Application.OpenURL("https://play.google.com/store/apps/details?id=" + Application.identifier);
-	}
+#if UNITY_ANDROID
+        Application.OpenURL("https://play.google.com/store/apps/details?id=com.block.puzzle.puzzlego.number.puzzledom.Kingdom");
+#elif UNITY_IOS
+         Device.RequestStoreReview());
+#endif
+    }
 
-	private void PlayTips()
+    private void PlayTips()
 	{
 		int idx = 0;
 		this.m_img_circle.gameObject.SetActive(true);

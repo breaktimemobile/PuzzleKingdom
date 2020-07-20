@@ -83,7 +83,7 @@ public class Skin : MonoBehaviour
 	{
 		if (AdsManager.GetInstance().IsWatch)
 		{
-			this.m_videoTimer.GetComponent<LanguageComponent>().SetText("TXT_NO_20018");
+			this.m_videoTimer.GetComponent<LanguageComponent>().SetText("TXT_NO_50139");
 		}
 		if (AdsManager.GetInstance().IsWatch)
 		{
@@ -134,7 +134,7 @@ public class Skin : MonoBehaviour
 		this.m_videoTimer.text = timer;
 		if (AdsManager.GetInstance().IsWatch)
 		{
-			this.m_videoTimer.GetComponent<LanguageComponent>().SetText("TXT_NO_20018");
+			this.m_videoTimer.GetComponent<LanguageComponent>().SetText("TXT_NO_50139");
 		}
 		if (isWatch)
 		{
