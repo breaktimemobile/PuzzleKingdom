@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CloudOnce;
 using Assets.Scripts.Utils;
+using GooglePlayGames;
 
 public class CloudOnceManager : MonoBehaviour
 {
@@ -12,36 +13,51 @@ public class CloudOnceManager : MonoBehaviour
     {
         Instance = this;
         Cloud.OnInitializeComplete += CloudOnceInitializeComplete;
-        Cloud.Initialize(true, false,false);
+        Cloud.Initialize(true, false, false);
     }
 
     public void DoAutoLogin()
     {
+#if UNITY_ANDROID
+        Social.localUser.Authenticate((authenticateCallBck));
 
-        //구글 로그인이 되어있지 않다면
-        if (PlayerPrefs.GetInt("Login", 0).Equals(1))
-        {
-            Cloud.SignIn(true, authenticateCallBck);
-        }
+#elif UNITY_IOS
+                Cloud.SignIn(true, authenticateCallBck);
 
+#endif
     }
 
 
     private void Start()
     {
+#if !UNITY_EDITOR
         FireBaseManager.Instance.FirebaseNullLogin();
         DoAutoLogin();
+#endif
     }
 
     public void Login()
     {
-        Cloud.SignIn(true, authenticateCallBck);
+#if UNITY_ANDROID
+        Social.localUser.Authenticate((authenticateCallBck));
+
+#elif UNITY_IOS
+                Cloud.SignIn(true, authenticateCallBck);
+
+#endif
 
     }
 
     public void Logout()
     {
+
+#if UNITY_ANDROID
+        ((PlayGamesPlatform)Social.Active).SignOut();
+
+#elif UNITY_IOS
         Cloud.SignOut();
+
+#endif
 
     }
 
@@ -74,6 +90,7 @@ public class CloudOnceManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Login", 1);
             Debug.Log("로그인 성공 " + PlayerPrefs.GetInt("Login", 0));
+            GoogleManager.Instance.Player_Data_Load();
 
         }
         else
@@ -116,7 +133,7 @@ public class CloudOnceManager : MonoBehaviour
                 Achievements.Levelup25.Unlock();
 
                 break;
- 
+
             default:
                 break;
         }

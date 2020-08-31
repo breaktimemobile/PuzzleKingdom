@@ -321,6 +321,7 @@ public class Shop : MonoBehaviour
         DataManager.Instance.Save_Player_Data();
 
 #if UNITY_ANDROID
+        GoogleManager.Instance.isPopup = false;
         GoogleManager.Instance.Player_Data_Save();
 #elif UNITY_IOS
         string jsonStr = JsonUtility.ToJson(DataManager.Instance.state_Player);

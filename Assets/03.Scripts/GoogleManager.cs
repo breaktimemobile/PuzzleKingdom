@@ -57,7 +57,7 @@ public class GoogleManager : MonoBehaviour
         GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
  
 #endif
-            
+
     }
 
     private void OnApplicationFocus(bool focus)
@@ -184,9 +184,13 @@ public class GoogleManager : MonoBehaviour
         }
     }
 
-#region Google Cloud Save
+    public bool isPopup = false;
 
-    public void Player_Data_Save(bool Popup = false)
+
+    #region Google Cloud Save
+
+
+    public void Player_Data_Save()
     {
 
         FireBaseManager.Instance.LogEvent("Setting_Data_Save");
@@ -203,21 +207,28 @@ public class GoogleManager : MonoBehaviour
         GameObject obj = null;
 #if UNITY_EDITOR
 
-        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_saveing") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
+        if (isPopup)
+        {
+            obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_saveing") as GameObject);
+            DialogManager.GetInstance().show(obj, false);
 
-        yield return new WaitForSeconds(2f);
-        DialogManager.GetInstance().Close(null);
+            yield return new WaitForSeconds(2f);
+            DialogManager.GetInstance().Close(null);
 
-        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save_confirm") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
+            obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save_confirm") as GameObject);
+            DialogManager.GetInstance().show(obj, false);
+        }
+
 #endif
 
 
         yield return new WaitForSeconds(0.1f);
 
-        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_saveing") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
+        if (isPopup)
+        {
+            obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_saveing") as GameObject);
+            DialogManager.GetInstance().show(obj, false);
+        }
 
         string id = Social.localUser.id;
         string filename = string.Format("{0}Bolck", id);
@@ -288,12 +299,14 @@ public class GoogleManager : MonoBehaviour
     {
         if (_state == SavedGameRequestStatus.Success)
         {
-            Debug.Log("save Complete");
-            DialogManager.GetInstance().Close(null);
+            if (isPopup)
+            {
+                Debug.Log("save Complete");
+                DialogManager.GetInstance().Close(null);
 
-            GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save_confirm") as GameObject);
-            DialogManager.GetInstance().show(obj, false);
-
+                GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_save_confirm") as GameObject);
+                DialogManager.GetInstance().show(obj, false);
+            }
         }
         else
         {
@@ -302,11 +315,11 @@ public class GoogleManager : MonoBehaviour
         }
     }
 
-#endregion
+    #endregion
 
-#region Google Cloud Load
+    #region Google Cloud Load
 
-#region old
+    #region old
 
     public void Player_Data_Load()
     {
@@ -320,29 +333,31 @@ public class GoogleManager : MonoBehaviour
         GameObject obj = null;
 
 #if UNITY_EDITOR
+        if (isPopup)
+        {
+            obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_loading") as GameObject);
+            DialogManager.GetInstance().show(obj, false);
 
-        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_loading") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
+            yield return new WaitForSeconds(2f);
 
-        yield return new WaitForSeconds(2f);
+            DialogManager.GetInstance().Close(null);
 
-        DialogManager.GetInstance().Close(null);
-
-         obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load_confirm") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
-
+            obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load_confirm") as GameObject);
+            DialogManager.GetInstance().show(obj, false);
+        }
 #endif
 
         yield return new WaitForSeconds(0.1f);
 
-
-        obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_loading") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
-
+        if (isPopup)
+        {
+            obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_loading") as GameObject);
+            DialogManager.GetInstance().show(obj, false);
+        }
         string id = Social.localUser.id;
-            string filename = string.Format("{0}Bolck", id);
+        string filename = string.Format("{0}Bolck", id);
 
-            OpenSaveGame(filename, false);
+        OpenSaveGame(filename, false);
 
     }
 
@@ -388,15 +403,19 @@ public class GoogleManager : MonoBehaviour
 #endif
     }
 
-#endregion
+    #endregion
 
 
     public void Player_Data_Load(string str)
     {
         DialogManager.GetInstance().Close(null);
 
-        GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load_confirm") as GameObject);
-        DialogManager.GetInstance().show(obj, false);
+        if (isPopup)
+        {
+            GameObject obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_load_confirm") as GameObject);
+            DialogManager.GetInstance().show(obj, false);
+        }
+
 
         string aes = AESCrypto.AESDecrypt128(str);
 

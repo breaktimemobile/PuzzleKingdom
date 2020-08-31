@@ -15,6 +15,8 @@ public class Main : MonoBehaviour
 	private void Start()
     {
 
+#if UNITY_EDITOR
+
         this.InitializeGameConfig();
         Configs.LoadConfig();
         GM.GetInstance().Init();
@@ -28,6 +30,8 @@ public class Main : MonoBehaviour
         GameList.Instance.init();
         GetComponent<MainScene>().Init();
         Utils.ShowLoginRewards();
+
+#endif
 
     }
 

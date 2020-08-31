@@ -145,6 +145,8 @@ public class DataManager : MonoBehaviour
     public void Save_Player_Data()
     {
         Save(state_Player);
+        GoogleManager.Instance.isPopup = false;
+        GoogleManager.Instance.Player_Data_Save();
     }
 
 

@@ -5,6 +5,7 @@ using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -71,6 +72,14 @@ public class MainScene : MonoBehaviour
 
     public Transform[] icons;
 
+    public GameObject loading;
+    public Image img_star;
+
+    private void Awake()
+    {
+        img_star.transform.DORotate(new Vector3(0, 180, 0), 1).SetLoops(-1);
+    }
+
     public void Init()
     {
 
@@ -80,6 +89,14 @@ public class MainScene : MonoBehaviour
         //this.RunSplash();
         Set_Timer();
         Open_Icon();
+        StartCoroutine("Co_Loading");
+    }
+
+    IEnumerator Co_Loading()
+    {
+        yield return new WaitForSeconds(1.5f);
+        loading.SetActive(false);
+
     }
 
     public void Pointer_Down(Transform isbtn)

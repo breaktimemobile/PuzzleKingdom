@@ -67,6 +67,8 @@ public class DataPopup : MonoBehaviour
 
 
 #if UNITY_ANDROID
+
+        GoogleManager.Instance.isPopup = true;
         GoogleManager.Instance.Player_Data_Save();
 
 #elif UNITY_IOS
@@ -119,6 +121,7 @@ public class DataPopup : MonoBehaviour
 
         DialogManager.GetInstance().Close(null);
 #if UNITY_ANDROID
+        GoogleManager.Instance.isPopup = true;
         GoogleManager.Instance.Player_Data_Load();
 
 #elif UNITY_IOS
