@@ -161,29 +161,19 @@ public class G3WinDialog : MonoBehaviour
     {
         FireBaseManager.Instance.LogEvent("Puzzle_Line_Result_Retry");
 
-        //AdsControl.Instance.reward_Type = Reward_Type.again;
-
-        //AdsControl.Instance.ShowRewardedAd();
-        //GM.GetInstance().AddDiamond(5, true);
-
+        UnityEngine.Debug.Log("On next lv");
+        GM.GetInstance().SetSavedGameID(this.gameID);
+        G3BoardGenerator.GetInstance().DestroyMap();
+        G3BoardGenerator.GetInstance().StartNewGame(Level);
         GlobalEventHandle.EmitDoRefreshCheckPoint(this.Lv);
-        this.OnClickNext();
+        DialogManager.GetInstance().Close(null);
 
-        /*
-        AdsManager.GetInstance().Play(AdsManager.AdType.MultiAwards, delegate
-		{
-			if (this.isShowAward)
-			{
-				GM.GetInstance().AddDiamond(this.Award, true);
-			}
-			GlobalEventHandle.EmitDoRefreshCheckPoint(this.Lv);
-			this.OnClickNext();
-		}, null, 5, null);
-		*/
+        AudioManager.GetInstance().PlayBgMusic("sound_ingame", true);
 
-	}
 
-	public void OnClickHome()
+    }
+
+    public void OnClickHome()
     {
         FireBaseManager.Instance.LogEvent("Puzzle_Line_Result_Main");
         AdsControl.Instance.ShowInterstitial();
