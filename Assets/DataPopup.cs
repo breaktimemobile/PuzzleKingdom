@@ -165,7 +165,7 @@ public class DataPopup : MonoBehaviour
 #if UNITY_ANDROID
         Application.OpenURL("https://play.google.com/store/apps/details?id=com.block.puzzle.puzzlego.number.puzzledom.Kingdom");
 #elif UNITY_IOS
-         Device.RequestStoreReview());
+         Device.RequestStoreReview();
 #endif
         DialogManager.GetInstance().Close(null);
 
