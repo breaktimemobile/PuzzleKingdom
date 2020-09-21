@@ -1043,6 +1043,7 @@ MonoBehaviour:
   save_data: 
   _IDtoken: 
   _authCode: 
+  isPopup: 0
 --- !u!4 &626273328
 Transform:
   m_ObjectHideFlags: 0

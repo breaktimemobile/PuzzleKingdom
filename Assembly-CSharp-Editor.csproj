@@ -82,6 +82,7 @@
     <Compile Include="Assets\Extensions\CloudOnce\Internal\Editor\Utils\iOSPostBuild.cs" />
     <Compile Include="Assets\Keystore Helper\Editor\AndroidKeystoreLoader.cs" />
     <Compile Include="Assets\Keystore Helper\Editor\KeystoreHelper.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\Editor\ReporterEditor.cs" />
     <None Include="Assets\ExternalDependencyManager\Editor\GoogleRegistries.xml" />
     <None Include="Assets\Extensions\GooglePlayGames\Editor\m2repository\com\google\games\gpgs-plugin-support\maven-metadata.xml" />
     <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.153_manifest.txt" />

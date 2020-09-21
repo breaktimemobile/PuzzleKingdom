@@ -370,7 +370,8 @@ public class GoogleManager : MonoBehaviour
         else
         {
             Debug.Log("Load Fail");
-
+            DialogManager.GetInstance().Close(null);
+            Reload();
         }
     }
 
@@ -379,12 +380,25 @@ public class GoogleManager : MonoBehaviour
     {
         if (_state == SavedGameRequestStatus.Success)
         {
-            Debug.Log("save Complete");
+            Debug.Log("load Complete");
 
 
             string data = Encoding.Default.GetString(_byte);
-            Player_Data_Load(data);
+            if (string.IsNullOrEmpty(data))
+            {
+                Debug.Log("없다고!!!");
 
+                DialogManager.GetInstance().Close(null);
+                Reload();
+
+            }
+            else
+            {
+                Debug.Log("있다고!!!");
+                Player_Data_Load(data);
+
+
+            }
         }
         else
         {
