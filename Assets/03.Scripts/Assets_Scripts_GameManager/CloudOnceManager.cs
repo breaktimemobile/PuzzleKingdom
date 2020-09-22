@@ -84,13 +84,26 @@ public class CloudOnceManager : MonoBehaviour
 
     }
 
+    bool isPopup = false;
+
     void authenticateCallBck(bool sucess)
     {
         if (sucess)
         {
             PlayerPrefs.SetInt("Login", 1);
             Debug.Log("로그인 성공 " + PlayerPrefs.GetInt("Login", 0));
+
+#if UNITY_ANDROID
             GoogleManager.Instance.Player_Data_Load();
+#elif UNITY_IOS
+        
+        isSave = false;
+
+        Cloud.OnCloudLoadComplete += CloudeLoad;
+        isPopup = false;
+
+        Cloud.Storage.Load();
+#endif
 
         }
         else
@@ -265,13 +278,14 @@ public class CloudOnceManager : MonoBehaviour
         if (!success)
             return;
 
-        isSave = true;
 
         string str = CloudVariables.Player_Data;
 
 
         if (str != "")
         {
+            if(!isPopup)
+            DialogManager.GetInstance().Close(null);
 
             var aes = AESCrypto.AESDecrypt128(str);
             var data = JsonUtility.FromJson<State_Player>(aes);
@@ -287,6 +301,7 @@ public class CloudOnceManager : MonoBehaviour
 
         }
 
+        isSave = true;
 
     }
 
@@ -299,6 +314,8 @@ public class CloudOnceManager : MonoBehaviour
 
     IEnumerator Co_Loading()
     {
+        isPopup = true;
+
         GameObject obj = null;
 
         obj = UnityEngine.Object.Instantiate<GameObject>(Resources.Load("Prefabs/data_loading") as GameObject);

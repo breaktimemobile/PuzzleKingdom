@@ -324,7 +324,7 @@ public class GoogleManager : MonoBehaviour
     public void Player_Data_Load()
     {
         FireBaseManager.Instance.LogEvent("Setting_Data_Down");
-
+        Debug.Log("불러오기");
         StartCoroutine(Load());
     }
 
