@@ -9,6 +9,8 @@ public class CloudOnceManager : MonoBehaviour
 {
     public static CloudOnceManager Instance;
 
+    public bool isPopup = false;
+
     private void Awake()
     {
         Instance = this;
@@ -84,7 +86,6 @@ public class CloudOnceManager : MonoBehaviour
 
     }
 
-    bool isPopup = false;
 
     void authenticateCallBck(bool sucess)
     {

@@ -444,6 +444,7 @@ public class G3BoardGenerator : MonoBehaviour
 
 	public int CheckClickPos(Vector2 pos)
 	{
+        Debug.Log(pos);
 		if (pos.x <= -400f || pos.x >= 400f || pos.y >= 400f || pos.y <= -400f)
 		{
 			return -1;

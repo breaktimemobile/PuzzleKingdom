@@ -145,8 +145,24 @@ public class DataManager : MonoBehaviour
     public void Save_Player_Data()
     {
         Save(state_Player);
+
+#if UNITY_ANDROID
         GoogleManager.Instance.isPopup = false;
         GoogleManager.Instance.Player_Data_Save();
+#elif UNITY_IOS
+
+        CloudOnceManager.Instance.isSave = false;
+
+        string jsonStr = JsonUtility.ToJson(DataManager.Instance.state_Player);
+        string aes = AESCrypto.AESEncrypt128(jsonStr);
+
+        CloudVariables.Player_Data = aes;
+
+        Cloud.OnCloudSaveComplete += CloudOnceManager.Instance.CloudeSave;
+
+        Cloud.Storage.Save();
+#endif
+
     }
 
 
@@ -158,7 +174,7 @@ public class DataManager : MonoBehaviour
         Debug.Log("처음접속 데이터 삭제");
         return false;
     }
-    #region SaveData
+#region SaveData
 
 
     /// <summary>
@@ -178,9 +194,9 @@ public class DataManager : MonoBehaviour
         file.Close();
     }
 
-    #endregion SaveData
+#endregion SaveData
 
-    #region LoadData
+#region LoadData
 
 
     /// <summary>
@@ -226,5 +242,5 @@ public class DataManager : MonoBehaviour
         return playerInfoSave;
     }
 
-    #endregion LoadData
+#endregion LoadData
 }
